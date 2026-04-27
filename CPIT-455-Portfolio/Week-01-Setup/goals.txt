@@ -1,0 +1,36 @@
+CPIT-455 Software Engineering II — HIMMA Portfolio
+Student: Amer Bugshan
+University: King Abdulaziz University — IT, Year 4, Semester 2
+Week 01 — Class 00: The HIMMA System
+
+=========================================
+MY GOALS FOR THIS COURSE
+=========================================
+
+1. Shift from passive content consumption to active proof.
+   I will not just "study to pass." I will produce a small piece
+   of evidence every week that proves I understood the concept.
+
+2. Master the HIMMA Cycle:
+   Goal -> Practice -> Evidence -> Feedback -> Improvement (V2).
+   I will treat every weak V1 as a chance to grow into V2.
+
+3. Build a professional Portfolio Folder I can show on
+   LinkedIn, GitHub, and in job interviews — not just a grade.
+
+4. Develop the H-Stack mindset:
+   Market Mindset, Iteration, Evidence-First Thinking,
+   Professional Communication, and Consistency.
+
+5. By the end of the course, be able to design dependable and
+   safe systems and defend every decision with evidence
+   (artifact + process + behavior).
+
+=========================================
+MY COMMITMENT
+=========================================
+I will spend at least 30 minutes each week updating this
+portfolio. I will submit a V1 even when it is imperfect, accept
+feedback honestly, and iterate to V2.
+
+Build Your Proof. — همة
