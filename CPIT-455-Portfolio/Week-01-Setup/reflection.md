@@ -34,13 +34,6 @@ After Class 00 I see every task as a chance to leave behind a **small
 proof** I can put on LinkedIn or GitHub. The folder is no longer a
 homework dump — it is a *Memory of Achievement*.
 
-## My V1 honesty
-
-This is a V1 reflection. It is not perfect. The next time I will:
-- Add a screenshot/diagram of the folder structure as artifact evidence.
-- Tighten the writing — currently a bit too long for a "small proof."
-- Tie my evidence more explicitly to a CLO.
-
 ## One question for next week
 
 > *"How do we decide which dependability attribute (Availability,
@@ -53,7 +46,7 @@ This is a V1 reflection. It is not perfect. The next time I will:
 | H-Stack layer            | Did I show it this week? |
 |--------------------------|--------------------------|
 | Market Mindset           | ✅ Used clear file names and proper structure |
-| Iteration (V1→V2)        | 🟡 V1 only so far — waiting for feedback      |
+| Iteration                | 🟡 First submission — waiting for instructor feedback |
 | Evidence-First Thinking  | ✅ Produced artifact + reflection             |
 | Professional Communication | ✅ Wrote in clean Markdown, no slang        |
 | Consistency              | 🟡 First week — need to maintain the rhythm  |

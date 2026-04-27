@@ -56,17 +56,9 @@ national SSO — and produced a dependability strategy that:
 - ends with an explicit trade-off ranking instead of pretending I can
   achieve 100 % everywhere.
 
-This is exactly the **Triangulation of Proof** the slides describe:
-Design Evidence (the strategy) + Process Evidence (this reflection +
-V1→V2 history) + Runtime Evidence (the test cases I will add in later
-weeks).
-
-## My V1 honesty
-
-This is V1. After feedback I plan to:
-- Add a small architecture diagram of Nafath's services for *Design Evidence*.
-- Quantify availability with a target SLA (e.g., 99.95 %) and propose a *POFOD* metric for the OTP service.
-- Map each strategy item to a specific failure source (HW / SW / Operational).
+This is exactly the **Triangulation of Proof**:
+Design Evidence (the strategy) + Process Evidence (this reflection) +
+Runtime Evidence (test cases that come in a later iteration).
 
 ## One question for next week
 

@@ -666,7 +666,7 @@
                 
                 <div class="stats-bar">
                     <div class="stat-item"><span>16</span> Weeks</div>
-                    <div class="stat-item"><span>V2</span> Iteration</div>
+                    <div class="stat-item"><span>V1</span> Iteration</div>
                     <div class="stat-item"><span>3</span> Lectures/Week</div>
                     <div class="stat-item"><span>1</span> Project</div>
                 </div>
@@ -782,7 +782,7 @@
             <p class="topic"><strong>Topics:</strong> Fault → Error → Failure, POFOD, ROCOF, AVAIL Metrics, 8 Commandments</p>
             
             <div class="evidence-box">
-                <h4>My Evidence (V2):</h4>
+                <h4>My Evidence (V1):</h4>
                 <!-- ⚠️ EDIT: Describe your specific evidence -->
                 <p class="placeholder">"I designed a reliability strategy for a system using ROCOF + Redundant Servers. I justified why ROCOF fits over POFOD or AVAIL."</p>
                 <div class="file-buttons">
@@ -804,7 +804,7 @@
             <p class="topic"><strong>Topics:</strong> Hazard → Accident → Damage, ALARP Triangle, Fault Tree Analysis, Safety Case</p>
             
             <div class="evidence-box">
-                <h4>My Evidence (V2):</h4>
+                <h4>My Evidence (V1):</h4>
                 <!-- ⚠️ EDIT: Describe your specific evidence -->
                 <p class="placeholder">"I built a Fault Tree for a safety-critical scenario, identifying single points of failure. My Safety Case included 3 evidence types."</p>
                 <div class="file-buttons">
@@ -826,12 +826,16 @@
             <p class="topic"><strong>Topics:</strong> Security Engineering, Resilience Patterns, Software Reuse, Component Composition</p>
             
             <div class="evidence-box">
-                <h4>My Evidence (V2):</h4>
-                <!-- ⚠️ EDIT: Describe your group contribution -->
-                <p class="placeholder">"[Add your reflection on Security/Resilience strategies and Reuse Plan for your project.]"</p>
+                <h4>My Evidence (V1) — Nusuk Project, Safety + Security ownership:</h4>
+                <p>For the group project <strong>Nusuk — Crowd Management &amp; Permit Validation System</strong>, I personally took ownership of the Safety and Security pillars of the dependability strategy.</p>
+                <ul>
+                    <li><strong>I designed the ALARP enforcement layer</strong> — hard-coded, non-overridable physical capacity constants that prevent over-issuance of Hajj permits beyond a zone's safe limit, even for VIP requests.</li>
+                    <li><strong>I designed the offline cryptographic validation scheme</strong> using RSA-2048 signed permits, anti-forgery rejection of tampered/replayed QR codes, and a revocation-list mechanism that syncs to gate scanners.</li>
+                    <li><strong>I justified</strong> these decisions against the team's critical failure scenario (over-issuance → crowd crush) and showed how my Security layer is a <em>precondition</em> for the team's offline-first Reliability and the 4 R's Resilience claims.</li>
+                </ul>
                 <div class="file-buttons">
-                    <button class="file-btn" disabled>📄 evidence.md (not yet)</button>
-                    <button class="file-btn" disabled>📄 reflection.md (not yet)</button>
+                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-09-10-GroupPhase/evidence-1.md','evidence-1.md')">📄 evidence-1.md</button>
+                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-09-10-GroupPhase/reflection.md','reflection.md')">📄 reflection.md</button>
                 </div>
             </div>
 
@@ -847,7 +851,7 @@
             <p class="topic"><strong>Topics:</strong> Distributed Systems (Ch.17), Component-Based SE (Ch.16), Architecture Design</p>
             
             <div class="evidence-box">
-                <h4>My Evidence (V2):</h4>
+                <h4>My Evidence (V1):</h4>
                 <!-- ⚠️ EDIT: Describe your architecture work -->
                 <p class="placeholder">"[Add your System Architecture Design and Component Diagram evidence.]"</p>
                 <div class="file-buttons">
@@ -868,7 +872,7 @@
             <p class="topic"><strong>Topics:</strong> Systems of Systems (Ch.20), Testing Strategies, Coverage Metrics</p>
             
             <div class="evidence-box">
-                <h4>My Evidence (V2):</h4>
+                <h4>My Evidence (V1):</h4>
                 <!-- ⚠️ EDIT: Describe your testing work -->
                 <p class="placeholder">"[Add your Test Cases Implementation and V&V Evidence.]"</p>
                 <div class="file-buttons">
@@ -912,103 +916,85 @@
     <section id="project">
         <h2>🚀 The Capstone Project</h2>
 
-        <div class="warning-box">
-            <strong>⚠️ IMPORTANT WARNING:</strong>
-            The project example below (ESAAF - Emergency Response System) is a SAMPLE ONLY. 
-            You MUST replace ALL content with your actual group project details. 
-            Do not submit this example as your own work.
-        </div>
-
-        <!-- ⚠️ EDIT: Replace with your actual project information -->
         <div style="background: #f0f9ff; border: 2px solid #0ea5e9; padding: 25px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="margin-top: 0; color: #0369a1;">[Replace With Your Project Name]</h3>
-            <p><strong>Domain:</strong> <span class="placeholder">[e.g., Medical / Finance / Transportation]</span></p>
-            <p><strong>Team Size:</strong> <span class="placeholder">[X] Members</span></p>
-            
-            <p class="placeholder">[Describe the problem your system solves, who uses it, and why dependability matters for your system. Every design decision should be driven by engineering evidence — not assumptions.]</p>
+            <h3 style="margin-top: 0; color: #0369a1;">Nusuk — Crowd Management &amp; Permit Validation System</h3>
+            <p><strong>Domain:</strong> Safety-Critical Crowd Management (Hajj operations in Makkah)</p>
+            <p><strong>Iteration:</strong> V1 group submission</p>
+
+            <p>Nusuk is a mission-critical permit-validation system that prevents catastrophic crowd-crushing during Hajj. Millions of pilgrims converge into confined spaces in Makkah; without strict capacity controls the risk of a crush is unacceptable. Nusuk performs <strong>precise permit validation that operates offline</strong> — so gatekeepers can always verify pilgrim credentials even when telecom networks fail.</p>
+
+            <p><em>Every design decision in this project is justified against one critical failure scenario: <strong>over-issuance of permits beyond physical zone capacity</strong>.</em></p>
         </div>
 
-        <h3>📊 Dependability Metrics</h3>
+        <h3>📊 Dependability Strategy (5 Attributes)</h3>
         <div class="project-metrics">
             <div class="metric-card">
                 <div class="icon">⏱</div>
                 <h4>Availability</h4>
-                <!-- ⚠️ EDIT: Your project's availability requirements -->
-                <p class="placeholder">[e.g., 99.9% uptime]</p>
+                <p>Zero-rated mobile routing keeps the pilgrim app reachable even under network throttling</p>
             </div>
             <div class="metric-card">
                 <div class="icon">🛡</div>
                 <h4>Reliability</h4>
-                <!-- ⚠️ EDIT: Your project's reliability metrics -->
-                <p class="placeholder">[e.g., POFOD metric]</p>
+                <p>Near-zero POFOD on gate scanners via local SQLite caching instead of live 5G</p>
             </div>
             <div class="metric-card">
                 <div class="icon">⚕</div>
                 <h4>Safety</h4>
-                <!-- ⚠️ EDIT: Your project's safety analysis -->
-                <p class="placeholder">[e.g., ALARP applied]</p>
+                <p>ALARP-enforced hard-coded capacity limits — no admin override, even for VIPs</p>
             </div>
             <div class="metric-card">
                 <div class="icon">🔒</div>
                 <h4>Security</h4>
-                <!-- ⚠️ EDIT: Your project's security measures -->
-                <p class="placeholder">[e.g., NCA standards]</p>
+                <p>RSA-2048 digitally signed offline permits + revocation lists prevent forgery</p>
             </div>
             <div class="metric-card">
                 <div class="icon">🔄</div>
                 <h4>Resilience</h4>
-                <!-- ⚠️ EDIT: Your project's resilience strategy -->
-                <p class="placeholder">[e.g., Recovery time]</p>
+                <p>The 4 R's: Recognition, Resistance, Recovery, Reinstatement — handle network drops gracefully</p>
             </div>
         </div>
 
-        <h3>🏗 Architecture & Engineering</h3>
+        <h3>🏗 Architecture (V1)</h3>
+        <p><strong>Pattern:</strong> Client–Server with Edge (offline-capable) capabilities. Pilgrim Mobile App ↔ API Gateway ↔ Central Ministry Database, with Offline Scanners holding a Local Cache (SQLite) for verification when the network is down.</p>
+
         <div class="grid">
             <div class="card">
                 <h4>🔄 Software Reuse</h4>
-                <!-- ⚠️ EDIT: Describe reused components -->
-                <p class="placeholder">[Describe reused components or libraries used in the project]</p>
+                <p>RSA &amp; AES standard cryptographic libraries (signed offline QR codes); SQLite + Realm for local caching, sync, and conflict resolution — avoiding costly and risky in-house crypto and storage.</p>
             </div>
             <div class="card">
                 <h4>🌐 Distributed Architecture</h4>
-                <!-- ⚠️ EDIT: Describe distributed patterns (Chapter 17) -->
-                <p class="placeholder">[Describe distributed architecture patterns used]</p>
+                <p>Edge nodes (gate scanners) operate autonomously on cached state; central Ministry DB is the master record reconciled via batched sync.</p>
             </div>
             <div class="card">
                 <h4>🧩 Component-Based</h4>
-                <!-- ⚠️ EDIT: Describe component composition (Chapter 16) -->
-                <p class="placeholder">[Describe component composition approach]</p>
+                <p>Independent components: Mobile App, API Gateway, Central DB, Offline Scanner, Local Cache — each replaceable without rewriting the whole system.</p>
             </div>
             <div class="card">
-                <h4>🔗 Systems of Systems</h4>
-                <!-- ⚠️ EDIT: Describe SoS integration (Chapter 20) -->
-                <p class="placeholder">[Describe integration with other systems]</p>
+                <h4>🛡 Hazard Analysis (Fault Tree)</h4>
+                <p>Top event: <em>Over-Issuance → Crowd Crush</em>. Causes: (1) concurrency bug in dual-scanner counter, (2) state desynchronization caused by telecom congestion.</p>
             </div>
             <div class="card">
-                <h4>✅ Code Coverage</h4>
-                <!-- ⚠️ EDIT: Describe testing coverage -->
-                <p class="placeholder">[Describe testing strategies and coverage metrics]</p>
+                <h4>🔐 Cryptographic Validation</h4>
+                <p>Each permit carries an RSA-2048 signature; scanners verify offline; central system can mark permits revoked and push updated lists at next sync.</p>
             </div>
             <div class="card">
-                <h4>🛡 Hazard Analysis</h4>
-                <!-- ⚠️ EDIT: Describe fault tree / hazards -->
-                <p class="placeholder">[Describe Fault Tree and hazards identified]</p>
+                <h4>⚖️ ALARP Enforcement</h4>
+                <p>Capacity constants are hard-coded and non-overridable. No administrator can issue more permits than the physical safe limit.</p>
             </div>
         </div>
 
-        <h3>📋 Project Evidence</h3>
+        <h3>📋 Project Evidence (V1)</h3>
         <ul>
-            <li><strong>Risk Metric:</strong> <span class="placeholder">[e.g., POFOD + Availability %]</span></li>
-            <li><strong>Architecture Pattern:</strong> <span class="placeholder">[e.g., Redundancy + N-Version]</span></li>
-            <li><strong>Safety Standard:</strong> <span class="placeholder">[e.g., ALARP threshold defined]</span></li>
-            <li><strong>V&amp;V Evidence:</strong> <span class="placeholder">[e.g., 400 test cases + Static Analysis]</span></li>
+            <li><strong>Risk Metric:</strong> Near-zero POFOD on gate scanners; Availability via zero-rated routing</li>
+            <li><strong>Architecture Pattern:</strong> Client–Server + Edge with offline-first local cache</li>
+            <li><strong>Safety Standard:</strong> ALARP — hard-coded capacity limits, no override path</li>
+            <li><strong>Critical Failure Scenario:</strong> Over-issuance of permits → crowd crush at gates</li>
         </ul>
 
         <div style="margin-top: 30px;">
-            <!-- ⚠️ EDIT: Add your actual project links -->
-            <a href="#" class="btn">📄 View Full Documentation →</a>
-            <a href="#" class="btn accent">💻 GitHub Repository →</a>
-            <a href="#" class="btn success">▶️ Prototype Demo →</a>
+            <a href="Nusuk-Crowd-Management-and-Permit-Validation-System.pptx" class="btn">📄 View Group Deck (V1) →</a>
         </div>
     </section>
 
@@ -1048,14 +1034,6 @@
             <blockquote>
                 <!-- ⚠️ EDIT: Write your authentic reflection -->
                 <p class="placeholder">"Before HIMMA, I thought software engineering meant writing code. Now I understand it means building evidence — every design decision must be justifiable, traceable, and provable."</p>
-            </blockquote>
-        </div>
-
-        <div class="reflection-card">
-            <h4>📈 My biggest V1 → V2 improvement</h4>
-            <blockquote>
-                <!-- ⚠️ EDIT: Describe specific feedback and improvement -->
-                <p class="placeholder">"In my first submission on dependability, I listed the 5 attributes as definitions. After feedback, my V2 applied them to a real system and showed how they interact — that's the difference."</p>
             </blockquote>
         </div>
 
