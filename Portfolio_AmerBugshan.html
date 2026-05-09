@@ -22,624 +22,198 @@
             --instructor-border: #fbbf24;
             --instructor-text: #92400e;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: var(--light);
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+            line-height: 1.6; color: #333; background: var(--light);
+            max-width: 1000px; margin: 0 auto; padding: 0 20px;
         }
-
-        /* Header Styles */
         header {
             background: linear-gradient(135deg, var(--dark) 0%, #334155 100%);
-            color: white;
-            padding: 50px 30px;
-            text-align: center;
-            border-radius: 12px;
-            margin: 30px 0;
+            color: white; padding: 50px 30px; text-align: center;
+            border-radius: 12px; margin: 30px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        header .subtitle {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
+        header h1 { font-size: 2.5em; margin-bottom: 10px; color: white; }
+        header .subtitle { font-size: 1.1em; opacity: 0.9; margin-bottom: 20px; }
         header .tagline {
-            background: var(--accent);
-            color: var(--dark);
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-bottom: 25px;
+            background: var(--accent); color: var(--dark);
+            display: inline-block; padding: 8px 20px; border-radius: 25px;
+            font-weight: bold; font-size: 0.9em; margin-bottom: 25px;
         }
-
-        nav {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
+        nav { margin-top: 25px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
         nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            color: white; text-decoration: none; padding: 10px 20px;
+            border-radius: 6px; font-weight: 600; transition: all 0.3s ease;
             border: 2px solid transparent;
         }
-
-        nav a:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: var(--accent);
-        }
-
-        /* Section Styles */
+        nav a:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); }
         section {
-            background: white;
-            padding: 40px;
-            margin: 30px 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white; padding: 40px; margin: 30px 0;
+            border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-
         section h2 {
-            color: var(--dark);
-            font-size: 2em;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--primary);
+            color: var(--dark); font-size: 2em; margin-bottom: 25px;
+            padding-bottom: 15px; border-bottom: 3px solid var(--primary);
             display: inline-block;
         }
-
-        section h3 {
-            color: var(--dark);
-            font-size: 1.4em;
-            margin: 25px 0 15px 0;
-        }
-
-        section h4 {
-            color: var(--secondary);
-            font-size: 1.1em;
-            margin: 15px 0 10px 0;
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Grid Layout */
+        section h3 { color: var(--dark); font-size: 1.4em; margin: 25px 0 15px 0; }
+        section h4 { color: var(--secondary); font-size: 1.1em; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; }
+        ul { margin-left: 25px; margin-bottom: 20px; }
+        li { margin-bottom: 8px; }
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 25px 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin: 25px 0;
         }
-
-        /* Card Styles */
         .card {
-            border: 1px solid #e2e8f0;
-            padding: 25px;
-            border-radius: 8px;
-            background: #fafafa;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e2e8f0; padding: 25px; border-radius: 8px;
+            background: #fafafa; transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .card h4 {
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        /* Badge Styles */
+        .card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h4 { color: var(--primary); font-weight: bold; margin-bottom: 12px; }
         .badge {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            display: inline-block; background: var(--primary); color: white;
+            padding: 5px 12px; border-radius: 20px; font-size: 0.85em;
+            font-weight: 600; margin-right: 8px; margin-bottom: 8px;
         }
-
-        .badge.accent {
-            background: var(--accent);
-            color: var(--dark);
-        }
-
-        .badge.success {
-            background: var(--success);
-        }
-
-        /* Photo Section */
-        .photo-section {
-            text-align: center;
-            padding: 20px;
-        }
-
+        .badge.accent { background: var(--accent); color: var(--dark); }
+        .badge.success { background: var(--success); }
+        .photo-section { text-align: center; padding: 20px; }
         .photo-section img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid var(--primary);
-            object-fit: cover;
-            background: #e2e8f0;
+            width: 200px; height: 200px; border-radius: 50%;
+            border: 5px solid var(--primary); object-fit: cover;
+            background: #e2e8f0; object-position: center top;
         }
-
         .photo-section .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+            width: 200px; height: 200px; border-radius: 50%;
             border: 5px dashed var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px auto;
-            color: var(--secondary);
-            font-weight: 600;
-            background: #f1f5f9;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px auto; color: var(--secondary);
+            font-weight: 600; background: #f1f5f9;
         }
-
-        /* Stats Bar */
         .stats-bar {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 25px 0;
+            display: flex; justify-content: center; flex-wrap: wrap;
+            gap: 15px; margin: 25px 0;
         }
-
         .stat-item {
-            background: var(--dark);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95em;
+            background: var(--dark); color: white; padding: 12px 25px;
+            border-radius: 8px; font-weight: 600; font-size: 0.95em;
         }
-
-        .stat-item span {
-            color: var(--accent);
-            font-size: 1.2em;
-            margin-right: 5px;
-        }
-
-        /* Evidence Cards */
-        .evidence-card {
-            border-left: 5px solid var(--primary);
-            background: #f8fafc;
-            margin-bottom: 25px;
-        }
-
-        .evidence-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-
+        .stat-item span { color: var(--accent); font-size: 1.2em; margin-right: 5px; }
+        .evidence-card { border-left: 5px solid var(--primary); background: #f8fafc; margin-bottom: 25px; }
+        .evidence-card h3 { margin-top: 0; color: var(--primary); }
         .evidence-card .week-badge {
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
+            background: var(--primary); color: white; padding: 5px 15px;
+            border-radius: 4px; font-size: 0.85em; font-weight: bold;
+            display: inline-block; margin-bottom: 10px;
         }
-
-        .evidence-card .topic {
-            color: var(--secondary);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
+        .evidence-card .topic { color: var(--secondary); font-style: italic; margin-bottom: 15px; }
         .evidence-card .evidence-box {
-            background: white;
-            border: 1px solid #e2e8f0;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 15px 0;
+            background: white; border: 1px solid #e2e8f0;
+            padding: 20px; border-radius: 6px; margin: 15px 0;
         }
-
-        /* File Buttons */
-        .file-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .file-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.9em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s ease;
-            font-family: inherit;
-        }
-
-        .file-btn:hover { background: var(--primary-dark); }
-        .file-btn:disabled {
-            background: #cbd5e1;
-            color: #64748b;
-            cursor: not-allowed;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.7);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal-box {
-            background: white;
-            border-radius: 12px;
-            max-width: 850px;
-            width: 100%;
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 25px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .modal-header h3 { margin: 0; color: var(--primary); font-size: 1.15em; }
-
-        .modal-close {
-            background: transparent;
-            border: none;
-            font-size: 1.6em;
-            cursor: pointer;
-            color: var(--secondary);
-            line-height: 1;
-        }
-
-        .modal-close:hover { color: var(--danger); }
-
-        .modal-body {
-            padding: 20px 25px;
-            overflow-y: auto;
-            flex: 1;
-        }
-
-        .modal-body pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Courier New', monospace;
-            font-size: 0.92em;
-            line-height: 1.5;
-            color: #1e293b;
-            margin: 0;
-        }
-
-        .modal-body .empty-msg {
-            text-align: center;
-            color: var(--secondary);
-            font-style: italic;
-            padding: 40px 20px;
-        }
-
-        /* Instructor Only Section */
         .instructor-only {
-            background: var(--instructor-bg);
-            border: 2px solid var(--instructor-border);
-            color: var(--instructor-text);
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            font-size: 0.9em;
-            display: none; /* Students should keep this hidden */
+            background: var(--instructor-bg); border: 2px solid var(--instructor-border);
+            color: var(--instructor-text); padding: 15px; border-radius: 6px;
+            margin-top: 15px; font-size: 0.9em; display: none;
         }
-
-        .instructor-only strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Warning Box */
+        .instructor-only strong { display: block; margin-bottom: 5px; }
         .warning-box {
-            background: var(--warning-bg);
-            border: 2px dashed var(--warning-border);
-            color: var(--warning-text);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            background: var(--warning-bg); border: 2px dashed var(--warning-border);
+            color: var(--warning-text); padding: 20px; border-radius: 8px; margin: 20px 0;
         }
-
-        .warning-box strong {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        /* Button Styles */
+        .warning-box strong { display: block; margin-bottom: 10px; font-size: 1.1em; }
         .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-            margin: 5px;
+            display: inline-block; background: var(--primary); color: white;
+            padding: 12px 25px; text-decoration: none; border-radius: 6px;
+            font-weight: 600; transition: background 0.3s ease; margin: 5px;
         }
-
-        .btn:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn.accent {
-            background: var(--accent);
-            color: var(--dark);
-        }
-
-        .btn.accent:hover {
-            background: #d97706;
-        }
-
-        .btn.success {
-            background: var(--success);
-        }
-
-        .btn.success:hover {
-            background: #059669;
-        }
-
-        /* Project Section Specific */
+        .btn:hover { background: var(--primary-dark); }
+        .btn.accent { background: var(--accent); color: var(--dark); }
+        .btn.accent:hover { background: #d97706; }
+        .btn.success { background: var(--success); }
+        .btn.success:hover { background: #059669; }
         .project-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px; margin: 25px 0;
         }
-
         .metric-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
+            background: white; border: 1px solid #e2e8f0;
+            padding: 20px; border-radius: 8px; text-align: center;
         }
-
-        .metric-card .icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .metric-card h4 {
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .metric-card p {
-            font-size: 0.9em;
-            color: var(--secondary);
-            margin: 0;
-        }
-
-        /* Reflection Section */
+        .metric-card .icon { font-size: 2em; margin-bottom: 10px; }
+        .metric-card h4 { color: var(--primary); margin-bottom: 8px; }
+        .metric-card p { font-size: 0.9em; color: var(--secondary); margin: 0; }
         .reflection-card {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border-left: 5px solid var(--accent);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
+            border-left: 5px solid var(--accent); padding: 25px;
+            margin-bottom: 20px; border-radius: 0 8px 8px 0;
         }
-
-        .reflection-card h4 {
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
+        .reflection-card h4 { color: var(--dark); margin-bottom: 15px; }
         .reflection-card blockquote {
-            background: white;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent);
-            font-style: italic;
-            color: var(--secondary);
+            background: white; padding: 20px; border-radius: 6px;
+            border-left: 3px solid var(--accent); font-style: italic; color: var(--secondary);
         }
-
-        /* Contact Section */
         .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px; margin: 25px 0;
         }
-
         .contact-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 20px;
-            background: var(--dark);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 15px 20px; background: var(--dark); color: white;
+            text-decoration: none; border-radius: 8px; font-weight: 600;
             transition: transform 0.2s ease;
         }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            background: #334155;
-        }
-
+        .contact-btn:hover { transform: translateY(-2px); background: #334155; }
         .contact-btn.linkedin { background: #0077b5; }
         .contact-btn.github { background: #333; }
         .contact-btn.email { background: var(--primary); }
         .contact-btn.cv { background: var(--success); }
-
-        /* Footer */
         footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--secondary);
-            border-top: 1px solid #e2e8f0;
-            margin-top: 50px;
+            text-align: center; padding: 40px 20px; color: var(--secondary);
+            border-top: 1px solid #e2e8f0; margin-top: 50px;
         }
-
-        footer p {
-            margin: 5px 0;
-        }
-
+        footer p { margin: 5px 0; }
         footer .himma-badge {
-            display: inline-block;
-            background: var(--dark);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin: 15px 0;
+            display: inline-block; background: var(--dark); color: white;
+            padding: 8px 20px; border-radius: 20px; font-weight: bold; margin: 15px 0;
         }
-
-        /* Placeholder Text */
         .placeholder {
-            color: #94a3b8;
-            font-style: italic;
-            background: #f1f5f9;
-            padding: 3px 8px;
-            border-radius: 3px;
+            color: #94a3b8; font-style: italic; background: #f1f5f9;
+            padding: 3px 8px; border-radius: 3px;
         }
-
-        /* Privacy Notice */
         .privacy-notice {
-            background: #fef3c7;
-            border: 1px solid #fbbf24;
-            color: #92400e;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 0.9em;
-            margin: 20px 0;
+            background: #fef3c7; border: 1px solid #fbbf24; color: #92400e;
+            padding: 15px; border-radius: 6px; font-size: 0.9em; margin: 20px 0;
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            section {
-                padding: 25px 20px;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav a {
-                width: 100%;
-                text-align: center;
-                max-width: 300px;
-            }
-
-            .stats-bar {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
+            header h1 { font-size: 1.8em; }
+            section { padding: 25px 20px; }
+            nav { flex-direction: column; align-items: center; }
+            nav a { width: 100%; text-align: center; max-width: 300px; }
+            .stats-bar { flex-direction: column; align-items: center; }
+            .grid { grid-template-columns: 1fr; }
         }
-
-        /* Print Styles */
         @media print {
-            body {
-                background: white;
-                max-width: 100%;
-            }
-
-            section {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                page-break-inside: avoid;
-            }
-
-            nav, .btn, .contact-btn {
-                display: none;
-            }
-
-            .instructor-only {
-                display: block !important;
-            }
+            body { background: white; max-width: 100%; }
+            section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+            nav, .btn, .contact-btn { display: none; }
+            .instructor-only { display: block !important; }
+        }
+        .diagram { text-align: center; margin: 20px 0; }
+        .diagram img {
+            max-width: 80%; height: auto; border: 1px solid #ccc;
+            padding: 10px; background-color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================ -->
-    <!-- HEADER SECTION -->
-    <!-- ============================================ -->
     <header>
-        <!-- ⚠️ EDIT: Replace with your full name -->
         <h1>Portfolio | Amer Bugshan</h1>
-        
         <p class="subtitle">CPIT-455 Software Engineering II · HIMMA Curriculum</p>
-        
         <div class="tagline">🔷 BUILD YOUR PROOF</div>
-        
         <nav>
             <a href="#about">👤 About</a>
             <a href="#evidence">📂 Evidence</a>
@@ -649,524 +223,348 @@
         </nav>
     </header>
 
-    <!-- ============================================ -->
-    <!-- SECTION 01: ABOUT ME -->
-    <!-- ============================================ -->
     <section id="about">
         <h2>👤 About Me</h2>
-        
         <div class="grid">
             <div>
-                <!-- ⚠️ EDIT: Write your personal bio here -->
                 <p>I am an Information Technology student at <strong>King Abdulaziz University</strong>, currently enrolled in <strong>CPIT-455 Software Engineering II</strong> under the HIMMA curriculum — a program that moves beyond passive content toward active proof.</p>
-                
                 <p>My goal is to become not just a programmer, but an engineer who understands dependability, safety, reliability, and the human responsibility that comes with building systems others trust.</p>
-                
                 <p>This portfolio represents every week of effort — small proofs that compound into professional-grade evidence of real engineering thinking.</p>
-                
                 <div class="stats-bar">
                     <div class="stat-item"><span>16</span> Weeks</div>
                     <div class="stat-item"><span>V1</span> Iteration</div>
                     <div class="stat-item"><span>3</span> Lectures/Week</div>
                     <div class="stat-item"><span>1</span> Project</div>
                 </div>
-
                 <h3>🎓 Academic Information</h3>
                 <ul>
-                    <!-- ⚠️ EDIT: Fill in your academic details -->
                     <li><strong>University:</strong> King Abdulaziz University</li>
                     <li><strong>Major:</strong> Information Technology</li>
-                    <li><strong>Year:</strong> 4 — Semester 2</li>
+                    <li><strong>Year:</strong> 2026 — Semester 2</li>
                     <li><strong>Course:</strong> CPIT-455 Software Engineering II</li>
                     <li><strong>Domain Focus:</strong> Dependable Systems &amp; Safety-Critical Design</li>
                 </ul>
             </div>
-
             <div class="photo-section">
-                <!-- ⚠️ EDIT: Replace src with your photo file path (e.g., "photo.jpg") -->
-                <!-- ⚠️ IMPORTANT: Place your photo in the same folder as this HTML file -->
-                <div class="photo-placeholder">
-                    📷 ADD YOUR PHOTO HERE
-                </div>
-                <!-- Uncomment below and add your photo path -->
-                <!-- <img src="your-photo.jpg" alt="Student Photo"> -->
-                
-                <h3>🛠 Technical Skills</h3>
-                <!-- ⚠️ EDIT: List your actual skills -->
+                <img src="CPIT-455-Portfolio/assests/profile photo_PhotoGrid.png" alt="Amer Bugshan">
+                <h3>🛠 Engineering Skills</h3>
                 <div>
                     <span class="badge">Software Architecture</span>
-                    <span class="badge">Fault Tree Analysis</span>
-                    <span class="badge">Risk Assessment</span>
-                    <span class="badge">ALARP</span>
-                    <span class="badge">Safety Engineering</span>
                     <span class="badge">Dependability</span>
-                    <span class="badge">Python</span>
-                    <span class="badge">Java</span>
+                    <span class="badge">ALARP</span>
+                    <span class="badge">Risk Assessment</span>
+                    <span class="badge">Safety Engineering</span>
+                    <span class="badge">Hazard Analysis</span>
+                    <span class="badge">Reliability Metrics</span>
                     <span class="badge">UML</span>
                     <span class="badge">V&amp;V</span>
-                    <span class="badge">System Design</span>
-                    <span class="badge accent">Add Your Skills</span>
+                    <span class="badge accent">System Design</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 02: WEEKLY EVIDENCE -->
-    <!-- ============================================ -->
     <section id="evidence">
         <h2>📂 Weekly Evidence</h2>
-        
         <p><em>Evidence = Clear Thinking, not perfection. Each week I produce a small proof of learning — a focused answer, a diagram, a test case, or a self-reflection. This is the record.</em></p>
-
         <div class="privacy-notice">
             <strong>📌 Privacy Notice:</strong> Do not include sensitive personal information (ID numbers, home addresses, phone numbers) in your evidence. Use your university email for contact.
         </div>
 
-        <!-- WEEK 01-02 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 01–02</span>
             <h3>CLASS 00 · The HIMMA System</h3>
             <p class="topic"><strong>Topics:</strong> Evidence, Portfolio, Iteration, H-Stack Mindset</p>
-
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <p>I created the portfolio folder <code>CPIT-455-Portfolio/Week-01-Setup/</code> with three artifacts: <code>goals.txt</code> (my course commitments), <code>evidence-1.md</code> (a Small Proof on Reliability vs. Availability using <strong>Nafath / نفاذ</strong> — the Saudi National SSO — with a test case and a concept diagram), and <code>reflection.md</code> (my V1 self-reflection on Class 00). I will keep <strong>Nafath</strong> as my running example across every week.</p>
-                <p><strong>Key insight:</strong> Evidence ≠ Perfection. A focused 5-line answer with one test case and one diagram is enough — as long as it proves clear thinking. I shifted from "studying to pass" to "building proof I can show."</p>
-                <p><strong>Question for next week:</strong> How do we decide which dependability attribute takes priority when Availability and Security conflict in the same system?</p>
-                <div class="file-buttons">
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-01-Setup/goals.txt','goals.txt')">📄 goals.txt</button>
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-01-Setup/evidence-1.md','evidence-1.md')">📄 evidence-1.md</button>
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-01-Setup/reflection.md','reflection.md')">📄 reflection.md</button>
-                </div>
+                <p>I created my portfolio folder structure and wrote my first goals + reflection. As a small proof I clarified <strong>Reliability vs Availability</strong> using <strong>IntelliTA</strong> — a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. <em>Available-but-unreliable:</em> the platform is reachable but returns wrong feedback. <em>Reliable-but-unavailable:</em> the feedback is correct but the platform is down on a lab-exam day. The HIMMA shift changed how I approach every task — I now build proof, not just submissions.</p>
             </div>
-
-            <!-- ⚠️ DO NOT EDIT: Instructor grading section (keep hidden) -->
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
-                <br><strong>Feedback:</strong> _________________________________
-            </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
 
-        <!-- WEEK 03-04 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 03–04</span>
             <h3>CLASS 01 · Domain Spine: Dependability</h3>
             <p class="topic"><strong>Topics:</strong> 5 Attributes (Availability, Reliability, Safety, Security, Resilience), Sources of Failure</p>
-            
             <div class="evidence-box">
-                <h4>My Evidence (V1) — Dependability Strategy for Nafath (نفاذ):</h4>
-                <p>I selected <strong>Nafath</strong> (the Saudi National Single Sign-On) as my real-world system and produced a full dependability strategy in <code>Week-02-Dependability/evidence-1.md</code>:</p>
+                <h4>My Evidence (V1):</h4>
+                <h3>IntelliTA – Dependability Mapping</h3>
+                <p>I mapped the five dependability attributes to <strong>IntelliTA</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>.</p>
                 <ul>
-                    <li><strong>5 Attributes mapped to Nafath:</strong> Availability (24/7 SSO), Reliability (no false approvals), Safety (prevent identity misuse), Security (protect national ID DB), Resilience (survive peak load + DDoS).</li>
-                    <li><strong>Risks identified by source:</strong> Hardware (server saturation on salary day), Software (OTP/token-signer logic bugs), Operational (SDAIA misconfigurations).</li>
-                    <li><strong>Strategy:</strong> Dynamic Scaling, Microservices (independent OTP service), <em>Diversity over pure Redundancy</em>, NCA-aligned 2FA + signed JWTs, and read-only fallback for rapid recovery.</li>
-                    <li><strong>Trade-off ranking:</strong> Security &gt; Reliability &gt; Availability &gt; Safety &gt; Maintainability — because 100 % dependability is infinitely expensive.</li>
+                    <li><strong>Availability:</strong> Reachable during peak assignment-deadline and lab-exam windows when many students use the system simultaneously.</li>
+                    <li><strong>Reliability:</strong> Accurate grading and feedback a wrong answer marked correct is a real failure.</li>
+                    <li><strong>Safety:</strong> Isolate student submissions so a malicious one cannot harm the system or other users.</li>
+                    <li><strong>Security:</strong> Protect student submissions, grades, and credentials with proper authentication and encryption.</li>
+                    <li><strong>Resilience:</strong> Survive outages and traffic spikes; degrade gracefully instead of collapsing.</li>
                 </ul>
-                <p><strong>Question for next week:</strong> When two diverse implementations of the same check disagree, which one wins — and how do we audit that decision so we are not just hiding a fault behind a vote?</p>
-                <div class="file-buttons">
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-02-Dependability/evidence-1.md','evidence-1.md')">📄 evidence-1.md</button>
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-02-Dependability/reflection.md','reflection.md')">📄 reflection.md</button>
-                </div>
+                <p>Risks include service downtime, isolation failure, data corruption, and malicious-input attacks. Strategy: separation of concerns into independent components, isolated execution of untrusted submissions, retry and fallback logic around the feedback engine, and database backups with replication.</p>
             </div>
-
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
-            </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
 
-        <!-- WEEK 05-06 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 05–06</span>
             <h3>CLASS 02 · Reliability Engineering</h3>
             <p class="topic"><strong>Topics:</strong> Fault → Error → Failure, POFOD, ROCOF, AVAIL Metrics, 8 Commandments</p>
-            
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <!-- ⚠️ EDIT: Describe your specific evidence -->
-                <p class="placeholder">"I designed a reliability strategy for a system using ROCOF + Redundant Servers. I justified why ROCOF fits over POFOD or AVAIL."</p>
-                <div class="file-buttons">
-                    <button class="file-btn" disabled>📄 evidence.md (not yet)</button>
-                    <button class="file-btn" disabled>📄 reflection.md (not yet)</button>
+                <h3>IntelliTA — Reliability Assessment</h3>
+
+                <p>The system I am assessing is <strong>IntelliTA</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. It is used by students to submit work, by instructors to monitor progress, and by the platform itself to orchestrate feedback. The system follows an <strong>uptime-driven design</strong>: it must be reachable whenever an assignment deadline or a lab session is in progress, and a failed feedback request must never silently corrupt a student's record.</p>
+
+                <p>IntelliTA has a dynamic usage pattern. Traffic spikes the night before assignment deadlines and during scheduled lab sessions and lab exams. During those windows the system must handle many concurrent submissions and feedback requests without losing or duplicating any of them. Therefore <strong>scalability under load</strong> and <strong>graceful degradation</strong> are critical to maintain continuous service.</p>
+
+                <p>The most critical dependability attribute for this system is <strong>availability</strong>. If the platform is down during a lab exam or at an assignment deadline, students cannot submit and the educational mission fails. <strong>Reliability</strong> is equally important — a duplicated grade or a lost submission directly damages a student's record. <strong>Security</strong> protects student data and grades, while <strong>maintainability</strong> lets us push fixes without taking the platform down mid-session.</p>
+
+                <h4>Reliability Metric Choice — AVAIL</h4>
+                <p>Following the slide's guidance ("System Type &amp; Risk Profile"), IntelliTA is <strong>uptime-critical and repairable</strong>, not safety-critical. Therefore I chose <strong>AVAIL (Availability %)</strong> over POFOD or ROCOF: what matters is the proportion of time the platform is operational during high-demand windows, and the goal is to <em>minimize downtime duration</em>. Target: ≥ 99.5% availability during assignment-deadline and lab-exam windows, with no single failure exceeding 5 minutes of downtime.</p>
+
+                <h4>Proposed Strategy — Redundancy + Three Lines of Defense</h4>
+                <p>I propose a single architectural decision: run the orchestration layer as <strong>two redundant instances behind a load balancer</strong>, with the persistent store replicated to a hot standby. This is <em>Redundancy</em> (multiple identical components in parallel), not Diversity — appropriate here because the dominant risk is a single host or process failure, not a shared design fault. The strategy is reinforced by the <strong>3 Lines of Defense</strong> from the lecture: <em>Fault Avoidance</em> via code reviews and the 8 Commandments at the orchestration layer; <em>Fault Detection</em> via health-checks and contract tests at every external boundary; <em>Fault Tolerance</em> via the redundant instances + replicated store + retry-and-fallback around the feedback engine. Together these defenses keep AVAIL above target even when one component or upstream provider fails.</p>
+
+                <div class="diagram">
+                    <h4>System Architecture Diagram</h4>
+                    <img src="CPIT-455-Portfolio/assests/archtitiure.jpg" alt="IntelliTA System Architecture">
                 </div>
             </div>
-
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
-                <br><strong>Homework Due:</strong> Week 7
-            </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank  For Instructor Use Only]<br><strong>Homework Due:</strong> Week 7</div>
         </div>
 
-        <!-- WEEK 07-08 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 07–08</span>
             <h3>CLASS 03 · Safety Engineering</h3>
             <p class="topic"><strong>Topics:</strong> Hazard → Accident → Damage, ALARP Triangle, Fault Tree Analysis, Safety Case</p>
-            
             <div class="evidence-box">
-                <h4>My Evidence (V1):</h4>
-                <!-- ⚠️ EDIT: Describe your specific evidence -->
-                <p class="placeholder">"I built a Fault Tree for a safety-critical scenario, identifying single points of failure. My Safety Case included 3 evidence types."</p>
-                <div class="file-buttons">
-                    <button class="file-btn" disabled>📄 evidence.md (not yet)</button>
-                    <button class="file-btn" disabled>📄 reflection.md (not yet)</button>
-                </div>
-            </div>
+                <h4>My Evidence (V1) — Portfolio Task: The Safety Argument</h4>
+                <h3>Safety-Critical Component: IntelliTA Automated Grading on a Lab Exam</h3>
+                <p>For this safety argument I selected the <strong>automated grading subsystem</strong> of IntelliTA on a lab-exam submission. This is the most safety-critical component of the platform: a wrong grade here directly damages a student's academic record, which the student cannot easily recover from.</p>
 
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
-                <br><strong>Midterm Exam 1:</strong> Week 8 (30%)
+                <h4>1. Identify the Hazard</h4>
+                <p><strong>Hazard:</strong> "Wrong grade issued for a correct submission on a lab exam." The harm is academic — a student who answered correctly is recorded as having failed, with consequences for their GPA and standing.</p>
+
+                <h4>2. Risk Assessment</h4>
+                <p>A simple matrix defining the Probability and Severity of this hazard:</p>
+                <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background:#1e293b; color:white;">
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Probability ↓ / Severity →</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Low (single question wrong)</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Medium (whole lab exam wrong)</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">High (course-failing grade)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#f8fafc;"><strong>Low</strong> (rare automated edge-case)</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#dcfce7;">Acceptable</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fef9c3;">ALARP</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fee2e2;">Intolerable</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#f8fafc;"><strong>Medium</strong> (ambiguous rubric)</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fef9c3;">ALARP</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fee2e2;">Intolerable</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fee2e2;">Intolerable</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#f8fafc;"><strong>High</strong> (systematic grader bug)</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fee2e2;">Intolerable</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fee2e2;">Intolerable</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1; background:#fee2e2;">Intolerable</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The realistic operating point is <em>Low Probability × High Severity</em> — rare, but when it happens the harm is course-failing. That cell is <strong>Intolerable</strong>, so the hazard must be designed out, not merely tested for.</p>
+
+                <h4>3. Safety Requirement (Shall-Not)</h4>
+                <blockquote style="background:#f1f5f9; border-left:4px solid var(--danger); padding:15px; margin:15px 0; font-style:italic;">
+                    "The system <strong>shall not</strong> display a final lab-exam grade to the student unless the automated grade and an independent rubric-based deterministic check agree on the same outcome."
+                </blockquote>
+                <p>Disagreement forces the submission into a manual review queue. This converts a single point of failure into a two-channel check.</p>
+
+                <h4>4. Visual Proof — Fault Tree</h4>
+                <p>Top Event: "Wrong grade issued on a lab exam." The branches below are the causes; the OR gate makes any one branch sufficient to trigger the hazard, which is why the safety requirement is needed.</p>
+                <pre style="background:#0f172a; color:#e2e8f0; padding:20px; border-radius:8px; overflow-x:auto; font-size:0.9em;">
+                            ┌────────────────────────────────────┐
+                            │  TOP EVENT                         │
+                            │  Wrong grade issued on lab exam    │
+                            └─────────────────┬──────────────────┘
+                                              │
+                                          ╔═══╧═══╗
+                                          ║  OR   ║
+                                          ╚═══╤═══╝
+                ┌─────────────────────────────┼─────────────────────────────┐
+                │                             │                             │
+        ┌───────┴────────┐          ┌─────────┴────────┐          ┌─────────┴────────┐
+        │ Automated      │          │ Execution        │          │ Orchestration    │
+        │ grader returns │          │ environment      │          │ layer maps grade │
+        │ wrong answer   │          │ returns wrong    │          │ to wrong student │
+        │                │          │ output           │          │                  │
+        └────────────────┘          └──────────────────┘          └──────────────────┘
+                </pre>
+                <p><strong>Design-In Decision:</strong> the Shall-Not requirement above is the <em>protection system</em> that breaks every branch of this tree before the wrong grade is ever shown — Safety is designed in, not tested in.</p>
             </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
 
-        <!-- WEEK 09-10 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 09–10</span>
-            <h3>GROUP PHASE · Security & Resilience + Software Reuse</h3>
-            <p class="topic"><strong>Topics:</strong> Security Engineering, Resilience Patterns, Software Reuse, Component Composition</p>
-            
+            <h3>GROUP PHASE · Security &amp; Resilience + Software Reuse</h3>
+            <p class="topic"><strong>Topics:</strong> Security Assurance Case, Resilience Patterns, Reuse Strategy</p>
             <div class="evidence-box">
-                <h4>My Evidence (V1) — Nusuk Project, Safety + Security ownership:</h4>
-                <p>For the group project <strong>Nusuk — Crowd Management &amp; Permit Validation System</strong>, I personally took ownership of the Safety and Security pillars of the dependability strategy.</p>
-                <ul>
-                    <li><strong>I designed the ALARP enforcement layer</strong> — hard-coded, non-overridable physical capacity constants that prevent over-issuance of Hajj permits beyond a zone's safe limit, even for VIP requests.</li>
-                    <li><strong>I designed the offline cryptographic validation scheme</strong> using RSA-2048 signed permits, anti-forgery rejection of tampered/replayed QR codes, and a revocation-list mechanism that syncs to gate scanners.</li>
-                    <li><strong>I justified</strong> these decisions against the team's critical failure scenario (over-issuance → crowd crush) and showed how my Security layer is a <em>precondition</em> for the team's offline-first Reliability and the 4 R's Resilience claims.</li>
-                </ul>
-                <div class="file-buttons">
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-09-10-GroupPhase/evidence-1.md','evidence-1.md')">📄 evidence-1.md</button>
-                    <button class="file-btn" onclick="openFile('CPIT-455-Portfolio/Week-09-10-GroupPhase/reflection.md','reflection.md')">📄 reflection.md</button>
-                </div>
-            </div>
+                <h4>My Evidence (V1) — Security, Resilience &amp; Reuse for IntelliTA</h4>
 
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
+                <p><strong>Security Assurance Case.</strong> Four components as taught: <em>System Description</em> — gateway-fronted platform, six independent services, only the orchestration layer is externally reachable. <em>Threat Analysis</em> — cheating student, malicious submission, external attacker, insider with stolen account. <em>Design Rationale</em> — defense-in-depth across five layers (Identity, Input, Isolation, Rate-limit, Audit), so each adversary must defeat multiple independent controls. <em>V&amp;V Results</em> — penetration tests, static analysis, dependency scans, and contract tests at every boundary.</p>
+
+                <p><strong>Resilience Case.</strong> Failure chain: a missing timeout on the feedback call (<em>fault</em>) saturates the request pool (<em>error</em>) and produces indefinite spinners at peak load (<em>failure</em>). R&amp;R: <em>Recognition</em> via health probes + p95-latency alarms; <em>Resistance</em> via circuit breaker + degraded mode that accepts and queues the submission and delivers feedback async on recovery — no submission is ever lost. The Swiss Cheese Model stacks Technical, Human, and Organizational layers owned by different roles so holes do not align; an on-call engineer is paged when the breaker exceeds its self-recovery budget, and the decision is logged immutably.</p>
+
+                <p><strong>Reuse Strategy.</strong> Application Frameworks for orchestration/UI + COTS/Service Integration for feedback, transcription, and isolated execution, assembled as a Software Product Line: <em>Core</em> (orchestration, identity, store schema, audit log, isolated execution, transcription) is locked; <em>Specialized</em> (rubrics, prompt templates, dashboards, lab timing) is configuration-as-data. The Ariane 5 lesson is enforced through the <em>Validate All Inputs</em> commandment — every value crossing into the orchestration layer is range- and type-checked, the specific defense the original silent overflow lacked.</p>
             </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
 
-        <!-- WEEK 11-12 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 11–12</span>
-            <h3>GROUP PHASE · Distributed & Component-Based Engineering</h3>
-            <p class="topic"><strong>Topics:</strong> Distributed Systems (Ch.17), Component-Based SE (Ch.16), Architecture Design</p>
-            
+            <h3>GROUP PHASE · Distributed &amp; Component-Based Engineering</h3>
+            <p class="topic"><strong>Topics:</strong> Distributed Architecture, CBSE, Requires/Provides Interfaces, Failover</p>
             <div class="evidence-box">
-                <h4>My Evidence (V1):</h4>
-                <!-- ⚠️ EDIT: Describe your architecture work -->
-                <p class="placeholder">"[Add your System Architecture Design and Component Diagram evidence.]"</p>
-                <div class="file-buttons">
-                    <button class="file-btn" disabled>📄 evidence.md (not yet)</button>
-                    <button class="file-btn" disabled>📄 reflection.md (not yet)</button>
-                </div>
-            </div>
+                <h4>My Evidence (V1) — Distributed &amp; CBSE Plan for IntelliTA</h4>
 
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
+                <p><strong>CBSE — Development with Reuse.</strong> IntelliTA is composed, not hand-written. The team builds only the orchestration layer end-to-end; every other capability is reached through a Requires/Provides contract: UI <em>requires</em> Submission + Identity APIs and <em>provides</em> entry/rendering; Orchestration <em>requires</em> Feedback, Transcription, Sandbox, and Store APIs and <em>provides</em> Submission + Result APIs to the UI. Each reused component is replaceable through its contract. The integration risk — a reused component returning an out-of-range value with a "success" status — is handled by enforcing <em>Validate All Inputs</em> on every Provides response: out-of-contract values are rejected at the boundary and the Resilience-Case degraded path takes over. Contract tests run before every integration build.</p>
+
+                <p><strong>Distributed Architecture.</strong> Distributed Component Architecture, not flat Client–Server (cannot absorb deadline spikes) and not Peer-to-Peer (graded work needs a trusted authority). Five node classes scale on their own load profiles: <em>Edge</em> (UI, geographic volume), <em>Orchestration</em> (active sessions/min), <em>Compute</em> (feedback + transcription, queue depth), <em>Sandbox</em> (concurrent execution slots), <em>Data</em> (primary + replica, durability). Heavy artifacts are written once to Data; nodes exchange references, not payloads — Compute and Sandbox are co-located with Data, Edge terminates near the student.</p>
+
+                <p><strong>Failover &amp; Security in Transit.</strong> Stateless tiers sit behind a health-checked load balancer; a failed node drops out within one probe interval. The Data tier runs primary + replica with synchronous replication for graded results — no commit is lost on failover. A partition between Orchestration and Compute trips the circuit breaker into the degraded path, keeping the UI alive. Every inter-node link uses <strong>TLS 1.3 with mutual authentication</strong>, so a compromised network cannot impersonate a node. Cloud capacity is added at deadline spikes and released afterwards; reused capabilities are consumed as SaaS — the same efficiency argument as the Reuse Strategy, now at the infrastructure layer.</p>
             </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
 
-        <!-- WEEK 13-14 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 13–14</span>
             <h3>GROUP PHASE · Systems of Systems + Code Coverage</h3>
-            <p class="topic"><strong>Topics:</strong> Systems of Systems (Ch.20), Testing Strategies, Coverage Metrics</p>
-            
+            <p class="topic"><strong>Topics:</strong> Systems of Systems, Testing Strategies, Coverage Metrics</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <!-- ⚠️ EDIT: Describe your testing work -->
-                <p class="placeholder">"[Add your Test Cases Implementation and V&V Evidence.]"</p>
-                <div class="file-buttons">
-                    <button class="file-btn" disabled>📄 evidence.md (not yet)</button>
-                    <button class="file-btn" disabled>📄 reflection.md (not yet)</button>
-                </div>
+                <p class="placeholder">[To be added once the Systems-of-Systems and Code Coverage assignment is released. Planned scope: describe how IntelliTA composes three independent systems (isolated execution environment, transcription service, external feedback engine) into one product surface, and document the test pyramid — unit tests on grading logic, contract tests on every external boundary, end-to-end tests on the submission path — with the coverage targets the team agreed to defend.]</p>
             </div>
-
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
-                <br><strong>Group Project Due:</strong> Week 15 (20%)
-                <br><strong>Lab Work Grade:</strong> Week 15 (10%)
-            </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]<br><strong>Group Project Due:</strong> Week 15 (20%)<br><strong>Lab Work Grade:</strong> Week 15 (10%)</div>
         </div>
 
-        <!-- WEEK 15-16 -->
         <div class="card evidence-card">
             <span class="week-badge">WEEK 15–16</span>
             <h3>FINAL HARVEST · The Final Proof</h3>
             <p class="topic"><strong>Topics:</strong> Final Integration, Portfolio Compilation, Presentation</p>
-            
             <div class="evidence-box">
                 <h4>My Evidence:</h4>
-                <!-- ⚠️ EDIT: Final reflection -->
-                <p class="placeholder">"[This is your final reflection. What is the most important thing you learned? What changed in how you think about software engineering?]"</p>
-                <div class="file-buttons">
-                    <button class="file-btn" disabled>📄 final-reflection.md (not yet)</button>
-                </div>
+                <p class="placeholder">[Final reflection — to be written at the end of the semester. The most important lesson, and how it changed how I think about software engineering.]</p>
             </div>
-
-            <div class="instructor-only">
-                <strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]
-                <br><strong>Final Exam:</strong> Week 16 (30%)
-            </div>
+            <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 03: THE PROJECT -->
-    <!-- ============================================ -->
     <section id="project">
         <h2>🚀 The Capstone Project</h2>
-
         <div style="background: #f0f9ff; border: 2px solid #0ea5e9; padding: 25px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="margin-top: 0; color: #0369a1;">Nusuk — Crowd Management &amp; Permit Validation System</h3>
-            <p><strong>Domain:</strong> Safety-Critical Crowd Management (Hajj operations in Makkah)</p>
-            <p><strong>Iteration:</strong> V1 group submission</p>
-
-            <p>Nusuk is a mission-critical permit-validation system that prevents catastrophic crowd-crushing during Hajj. Millions of pilgrims converge into confined spaces in Makkah; without strict capacity controls the risk of a crush is unacceptable. Nusuk performs <strong>precise permit validation that operates offline</strong> — so gatekeepers can always verify pilgrim credentials even when telecom networks fail.</p>
-
-            <p><em>Every design decision in this project is justified against one critical failure scenario: <strong>over-issuance of permits beyond physical zone capacity</strong>.</em></p>
+            <h3 style="margin-top: 0; color: #0369a1;">IntelliTA — Intelligent Teaching Assistant</h3>
+            <p><strong>Domain:</strong> Education Technology / AI-Assisted Learning</p>
+            <p><strong>Team Size:</strong> 4 Members</p>
+            <p>IntelliTA is a platform that gives students instant, automated feedback on their submissions and questions. Students log in, submit work or record a spoken question, and the system orchestrates a feedback engine, a transcription service, and an isolated execution environment to return graded, explained feedback in seconds. Dependability matters because the platform handles graded academic work — a wrong grade, a leaked submission, or an outage during a deadline directly damages a student's record.</p>
         </div>
 
-        <h3>📊 Dependability Strategy (5 Attributes)</h3>
+        <h3>📊 Dependability Metrics</h3>
         <div class="project-metrics">
-            <div class="metric-card">
-                <div class="icon">⏱</div>
-                <h4>Availability</h4>
-                <p>Zero-rated mobile routing keeps the pilgrim app reachable even under network throttling</p>
-            </div>
-            <div class="metric-card">
-                <div class="icon">🛡</div>
-                <h4>Reliability</h4>
-                <p>Near-zero POFOD on gate scanners via local SQLite caching instead of live 5G</p>
-            </div>
-            <div class="metric-card">
-                <div class="icon">⚕</div>
-                <h4>Safety</h4>
-                <p>ALARP-enforced hard-coded capacity limits — no admin override, even for VIPs</p>
-            </div>
-            <div class="metric-card">
-                <div class="icon">🔒</div>
-                <h4>Security</h4>
-                <p>RSA-2048 digitally signed offline permits + revocation lists prevent forgery</p>
-            </div>
-            <div class="metric-card">
-                <div class="icon">🔄</div>
-                <h4>Resilience</h4>
-                <p>The 4 R's: Recognition, Resistance, Recovery, Reinstatement — handle network drops gracefully</p>
-            </div>
+            <div class="metric-card"><div class="icon">⏱</div><h4>Availability</h4><p>99.5% uptime during assignment &amp; lab-exam windows</p></div>
+            <div class="metric-card"><div class="icon">🛡</div><h4>Reliability</h4><p>POFOD &lt; 0.001 on submission endpoints</p></div>
+            <div class="metric-card"><div class="icon">⚕</div><h4>Safety</h4><p>ALARP applied to sandbox &amp; LLM grading</p></div>
+            <div class="metric-card"><div class="icon">🔒</div><h4>Security</h4><p>Token auth, hashed credentials, parameterized queries</p></div>
+            <div class="metric-card"><div class="icon">🔄</div><h4>Resilience</h4><p>4 R's + automatic component restart</p></div>
         </div>
 
-        <h3>🏗 Architecture (V1)</h3>
-        <p><strong>Pattern:</strong> Client–Server with Edge (offline-capable) capabilities. Pilgrim Mobile App ↔ API Gateway ↔ Central Ministry Database, with Offline Scanners holding a Local Cache (SQLite) for verification when the network is down.</p>
-
+        <h3>🏗 Architecture &amp; Engineering</h3>
         <div class="grid">
-            <div class="card">
-                <h4>🔄 Software Reuse</h4>
-                <p>RSA &amp; AES standard cryptographic libraries (signed offline QR codes); SQLite + Realm for local caching, sync, and conflict resolution — avoiding costly and risky in-house crypto and storage.</p>
-            </div>
-            <div class="card">
-                <h4>🌐 Distributed Architecture</h4>
-                <p>Edge nodes (gate scanners) operate autonomously on cached state; central Ministry DB is the master record reconciled via batched sync.</p>
-            </div>
-            <div class="card">
-                <h4>🧩 Component-Based</h4>
-                <p>Independent components: Mobile App, API Gateway, Central DB, Offline Scanner, Local Cache — each replaceable without rewriting the whole system.</p>
-            </div>
-            <div class="card">
-                <h4>🛡 Hazard Analysis (Fault Tree)</h4>
-                <p>Top event: <em>Over-Issuance → Crowd Crush</em>. Causes: (1) concurrency bug in dual-scanner counter, (2) state desynchronization caused by telecom congestion.</p>
-            </div>
-            <div class="card">
-                <h4>🔐 Cryptographic Validation</h4>
-                <p>Each permit carries an RSA-2048 signature; scanners verify offline; central system can mark permits revoked and push updated lists at next sync.</p>
-            </div>
-            <div class="card">
-                <h4>⚖️ ALARP Enforcement</h4>
-                <p>Capacity constants are hard-coded and non-overridable. No administrator can issue more permits than the physical safe limit.</p>
-            </div>
+            <div class="card"><h4>🔄 Software Reuse</h4><p>Mature open-source components were reused for execution isolation, transcription, persistence, and the user interface — every choice justified against the risk it reduces.</p></div>
+            <div class="card"><h4>🌐 Distributed Architecture</h4><p>Gateway + Independent Services: an orchestration layer routes requests to the feedback engine, transcription service, isolated execution environment, and persistent store.</p></div>
+            <div class="card"><h4>🧩 Component-Based</h4><p>Each service is an independently deployable component with a documented interface. Replacing the feedback engine does not touch the user interface.</p></div>
+            <div class="card"><h4>🔗 Systems of Systems</h4><p>Composes an isolated execution environment, a transcription service, and an external feedback engine — three independent systems integrated under one product surface.</p></div>
+            <div class="card"><h4>✅ Code Coverage</h4><p>Unit tests on authentication and grading logic, contract tests at every external boundary, and end-to-end tests for the submission path.</p></div>
+            <div class="card"><h4>🛡 Hazard Analysis</h4><p>Top hazard: escape from the isolated execution environment by a malicious submission. Mitigated via stripped, read-only environment, no network egress, resource caps, and an ephemeral workspace.</p></div>
         </div>
 
-        <h3>📋 Project Evidence (V1)</h3>
+        <h3>📋 Project Evidence</h3>
         <ul>
-            <li><strong>Risk Metric:</strong> Near-zero POFOD on gate scanners; Availability via zero-rated routing</li>
-            <li><strong>Architecture Pattern:</strong> Client–Server + Edge with offline-first local cache</li>
-            <li><strong>Safety Standard:</strong> ALARP — hard-coded capacity limits, no override path</li>
-            <li><strong>Critical Failure Scenario:</strong> Over-issuance of permits → crowd crush at gates</li>
+            <li><strong>Risk Metric:</strong> POFOD &lt; 0.001 + 99.5% availability target</li>
+            <li><strong>Architecture Pattern:</strong> Gateway + Independent Services</li>
+            <li><strong>Safety Standard:</strong> ALARP — execution isolation + human-in-the-loop on graded feedback</li>
+            <li><strong>V&amp;V Evidence:</strong> Unit + contract + end-to-end tests, plus a chaos test for feedback-engine outage</li>
         </ul>
 
         <div style="margin-top: 30px;">
-            <a href="Nusuk-Crowd-Management-and-Permit-Validation-System.pptx" class="btn">📄 View Group Deck (V1) →</a>
+            <a href="#" class="btn">📄 View Full Documentation →</a>
+            <a href="#" class="btn accent">💻 GitHub Repository →</a>
+            <a href="#" class="btn success">▶️ Prototype Demo →</a>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 04: H-STACK REFLECTION -->
-    <!-- ============================================ -->
     <section id="reflection">
         <h2>🧠 H-Stack Reflection</h2>
-        
-        <p><em>This section demonstrates your growth mindset and engineering maturity. Be authentic and specific.</em></p>
+        <p><em>This section demonstrates my growth mindset and engineering maturity.</em></p>
 
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 30px;">
-            <div class="card" style="text-align: center;">
-                <div style="font-size: 2em;">📈</div>
-                <h4>Market Mindset</h4>
-                <p style="font-size: 0.9em;">Delivery quality · Documentation · Iteration</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <div style="font-size: 2em;">🔍</div>
-                <h4>Evidence-First</h4>
-                <p style="font-size: 0.9em;">From "I know" → "I can prove"</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <div style="font-size: 2em;">📢</div>
-                <h4>Communication</h4>
-                <p style="font-size: 0.9em;">Clarity expected in industry</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <div style="font-size: 2em;">⚡</div>
-                <h4>Consistency</h4>
-                <p style="font-size: 0.9em;">Discipline · Commitment to rhythm</p>
-            </div>
+            <div class="card" style="text-align: center;"><div style="font-size: 2em;">📈</div><h4>Market Mindset</h4><p style="font-size: 0.9em;">Delivery quality · Documentation · Iteration</p></div>
+            <div class="card" style="text-align: center;"><div style="font-size: 2em;">🔍</div><h4>Evidence-First</h4><p style="font-size: 0.9em;">From "I know" → "I can prove"</p></div>
+            <div class="card" style="text-align: center;"><div style="font-size: 2em;">📢</div><h4>Communication</h4><p style="font-size: 0.9em;">Clarity expected in industry</p></div>
+            <div class="card" style="text-align: center;"><div style="font-size: 2em;">⚡</div><h4>Consistency</h4><p style="font-size: 0.9em;">Discipline · Commitment to rhythm</p></div>
         </div>
 
         <div class="reflection-card">
             <h4>❓ What changed in how I think?</h4>
             <blockquote>
-                <!-- ⚠️ EDIT: Write your authentic reflection -->
-                <p class="placeholder">"Before HIMMA, I thought software engineering meant writing code. Now I understand it means building evidence — every design decision must be justifiable, traceable, and provable."</p>
+                <p>"Before HIMMA, I thought engineering meant writing code that runs. After working on IntelliTA through this course's lens, I see it as building <em>justifiable</em> code — every decision must be traceable to a risk it reduces."</p>
             </blockquote>
         </div>
 
         <div class="reflection-card">
             <h4>⚖️ Safety vs Reliability — My understanding</h4>
             <blockquote>
-                <!-- ⚠️ EDIT: Show technical understanding -->
-                <p class="placeholder">"A system can perfectly follow its specification and still cause harm. Safety is freedom from harm, Reliability is conformance to spec. A reliable weapon is still dangerous — that insight changed everything."</p>
+                <p>"A system can perfectly follow its specification and still cause harm. An automated grader can be 100% reliable in returning <em>some</em> answer and still be unsafe if that answer is confidently wrong on a real exam. Reliability is conformance to spec; Safety is freedom from harm — and the spec itself can be wrong."</p>
             </blockquote>
         </div>
 
         <div class="reflection-card">
             <h4>💼 What I will carry into my career</h4>
             <blockquote>
-                <!-- ⚠️ EDIT: Write your career insight -->
-                <p class="placeholder">"The burden of proof is on the engineer. In safety engineering, you are guilty until proven innocent. I will never ship a critical system without a Safety Case — and I now know how to build one."</p>
+                <p>"The burden of proof is on the engineer. I will not ship a system that touches student records, payments, or health without a written Safety Case — and I now know how to build one."</p>
             </blockquote>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 05: CONTACT -->
-    <!-- ============================================ -->
     <section id="contact">
         <h2>🤝 Let's Connect</h2>
-        
         <p>Build Your Network. Build Your Future.</p>
-
         <div class="privacy-notice">
             <strong>🔒 Privacy Reminder:</strong> Use professional contact methods only. Do not share personal phone numbers or home addresses.
         </div>
-
         <div class="contact-grid">
-            <!-- ⚠️ EDIT: Add your actual links -->
-            <a href="https://www.linkedin.com/in/amerbugshan/" class="contact-btn linkedin" target="_blank">
-                💼 LinkedIn
-            </a>
-            <a href="mailto:abugshan0013@stu.kau.edu.sa" class="contact-btn email">
-                ✉️ Email
-            </a>
-            <a href="https://github.com/AmerBugshan" class="contact-btn github" target="_blank">
-                💻 GitHub
-            </a>
-            <a href="#" class="contact-btn cv">
-                📄 Download CV
-            </a>
+            <a href="https://www.linkedin.com/in/amerbugshan/" class="contact-btn linkedin" target="_blank">💼 LinkedIn</a>
+            <a href="mailto:abugshan0013@stu.kau.edu.sa" class="contact-btn email">✉️ Email</a>
+            <a href="https://github.com/AmerBugshan" class="contact-btn github" target="_blank">💻 GitHub</a>
+            <a href="#" class="contact-btn cv">📄 Download CV</a>
         </div>
-
         <div style="text-align: center; margin-top: 30px;">
             <a href="https://www.linkedin.com/in/amerbugshan/" class="btn" target="_blank">View Full LinkedIn Profile →</a>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- FOOTER -->
-    <!-- ============================================ -->
     <footer>
         <div class="himma-badge">HIMMA | BUILD YOUR PROOF</div>
-        
-        <!-- ⚠️ EDIT: Update with your name and date -->
         <p>© 2026 — Amer Bugshan · CPIT-455 Portfolio</p>
-        <p>Faculty of Computing and Information Technology — King Abdulaziz University</p>
-        <p>Last Updated: April 2026 — Version 2.0</p>
-        
+        <p>Faculty of Computing and Information Technology</p>
+        <p>Last Updated: May 2026 — Version 1.0</p>
         <div style="margin-top: 20px; font-size: 0.85em; color: #94a3b8;">
             <p>📚 Textbook: Ian Sommerville, "Software Engineering", 10th Edition (2015)</p>
-            <p>🏛 Department of Information Technology · Fall 2024</p>
+            <p>🏛 Department of Information Technology · Spring 2026</p>
         </div>
     </footer>
-
-    <!-- ============================================ -->
-    <!-- FILE PREVIEW MODAL -->
-    <!-- ============================================ -->
-    <div class="modal-overlay" id="fileModal" onclick="if(event.target===this)closeFile()">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3 id="modalTitle">File</h3>
-                <button class="modal-close" onclick="closeFile()" aria-label="Close">×</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <pre id="modalContent"></pre>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        async function openFile(path, name) {
-            const modal   = document.getElementById('fileModal');
-            const title   = document.getElementById('modalTitle');
-            const content = document.getElementById('modalContent');
-            title.textContent = name;
-            content.textContent = 'Loading...';
-            modal.classList.add('active');
-            try {
-                const res = await fetch(path);
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                content.textContent = await res.text();
-            } catch (err) {
-                content.textContent =
-                    'Could not load "' + path + '".\n\n' +
-                    'If you opened this HTML by double-clicking, browsers block file:// fetches.\n' +
-                    'Open the portfolio via a local server, e.g. in this folder run:\n\n' +
-                    '   python -m http.server 8000\n\n' +
-                    'then visit http://localhost:8000/CPIT455-HomeworkProject.html';
-            }
-        }
-        function closeFile() {
-            document.getElementById('fileModal').classList.remove('active');
-        }
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeFile();
-        });
-    </script>
-
-    <!-- ============================================ -->
-    <!-- STUDENT INSTRUCTIONS (Hidden in browser) -->
-    <!-- ============================================ -->
-    <!-- 
-    ╔════════════════════════════════════════════════════════════════╗
-    ║                    STUDENT CHECKLIST                           ║
-    ╠════════════════════════════════════════════════════════════════╣
-    ║  ✅ Replace ALL [placeholder] text with your information       ║
-    ║  ✅ Add your photo (200x200px) in the same folder              ║
-    ║  ✅ Update all links (LinkedIn, GitHub, Project)               ║
-    ║  ✅ Remove the ESAAF example and add YOUR project              ║
-    ║  ✅ Fill in ALL weekly evidence sections                       ║
-    ║  ✅ Write authentic reflections (not copied examples)          ║
-    ║  ✅ Keep instructor-only sections HIDDEN (display: none)       ║
-    ║  ✅ Test all links before submission                           ║
-    ║  ✅ Save as: Portfolio_YourName.html                           ║
-    ║  ✅ Submit by the deadline                                     ║
-    ╚════════════════════════════════════════════════════════════════╝
-    -->
 
 </body>
 </html>
