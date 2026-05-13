@@ -277,7 +277,7 @@
             <p class="topic"><strong>Topics:</strong> Evidence, Portfolio, Iteration, H-Stack Mindset</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <p>I created my portfolio folder structure and wrote my first goals + reflection. As a small proof I clarified <strong>Reliability vs Availability</strong> using <strong>IntelliTA</strong> — a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. <em>Available-but-unreliable:</em> the platform is reachable but returns wrong feedback. <em>Reliable-but-unavailable:</em> the feedback is correct but the platform is down on a lab-exam day. The HIMMA shift changed how I approach every task — I now build proof, not just submissions.</p>
+                <p>I created my portfolio folder structure and wrote my first goals + reflection. As a small proof I clarified <strong>Reliability vs Availability</strong> using <strong>Intelligent Teaching Assistant</strong> — a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. <em>Available-but-unreliable:</em> the platform is reachable but returns wrong feedback. <em>Reliable-but-unavailable:</em> the feedback is correct but the platform is down on a lab-exam day. The HIMMA shift changed how I approach every task — I now build proof, not just submissions.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
@@ -288,8 +288,8 @@
             <p class="topic"><strong>Topics:</strong> 5 Attributes (Availability, Reliability, Safety, Security, Resilience), Sources of Failure</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <h3>IntelliTA – Dependability Mapping</h3>
-                <p>I mapped the five dependability attributes to <strong>IntelliTA</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>.</p>
+                <h3>Intelligent Teaching Assistant – Dependability Mapping</h3>
+                <p>I mapped the five dependability attributes to <strong>Intelligent Teaching Assistant</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>.</p>
                 <ul>
                     <li><strong>Availability:</strong> Reachable during peak assignment-deadline and lab-exam windows when many students use the system simultaneously.</li>
                     <li><strong>Reliability:</strong> Accurate grading and feedback a wrong answer marked correct is a real failure.</li>
@@ -308,23 +308,23 @@
             <p class="topic"><strong>Topics:</strong> Fault → Error → Failure, POFOD, ROCOF, AVAIL Metrics, 8 Commandments</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <h3>IntelliTA — Reliability Assessment</h3>
+                <h3>Intelligent Teaching Assistant — Reliability Assessment</h3>
 
-                <p>The system I am assessing is <strong>IntelliTA</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. It is used by students to submit work, by instructors to monitor progress, and by the platform itself to orchestrate feedback. The system follows an <strong>uptime-driven design</strong>: it must be reachable whenever an assignment deadline or a lab session is in progress, and a failed feedback request must never silently corrupt a student's record.</p>
+                <p>The system I am assessing is <strong>Intelligent Teaching Assistant</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. It is used by students to submit work, by instructors to monitor progress, and by the platform itself to orchestrate feedback. The system follows an <strong>uptime-driven design</strong>: it must be reachable whenever an assignment deadline or a lab session is in progress, and a failed feedback request must never silently corrupt a student's record.</p>
 
-                <p>IntelliTA has a dynamic usage pattern. Traffic spikes the night before assignment deadlines and during scheduled lab sessions and lab exams. During those windows the system must handle many concurrent submissions and feedback requests without losing or duplicating any of them. Therefore <strong>scalability under load</strong> and <strong>graceful degradation</strong> are critical to maintain continuous service.</p>
+                <p>Intelligent Teaching Assistant has a dynamic usage pattern. Traffic spikes the night before assignment deadlines and during scheduled lab sessions and lab exams. During those windows the system must handle many concurrent submissions and feedback requests without losing or duplicating any of them. Therefore <strong>scalability under load</strong> and <strong>graceful degradation</strong> are critical to maintain continuous service.</p>
 
                 <p>The most critical dependability attribute for this system is <strong>availability</strong>. If the platform is down during a lab exam or at an assignment deadline, students cannot submit and the educational mission fails. <strong>Reliability</strong> is equally important — a duplicated grade or a lost submission directly damages a student's record. <strong>Security</strong> protects student data and grades, while <strong>maintainability</strong> lets us push fixes without taking the platform down mid-session.</p>
 
                 <h4>Reliability Metric Choice — AVAIL</h4>
-                <p>Following the slide's guidance ("System Type &amp; Risk Profile"), IntelliTA is <strong>uptime-critical and repairable</strong>, not safety-critical. Therefore I chose <strong>AVAIL (Availability %)</strong> over POFOD or ROCOF: what matters is the proportion of time the platform is operational during high-demand windows, and the goal is to <em>minimize downtime duration</em>. Target: ≥ 99.5% availability during assignment-deadline and lab-exam windows, with no single failure exceeding 5 minutes of downtime.</p>
+                <p>Following the slide's guidance ("System Type &amp; Risk Profile"), Intelligent Teaching Assistant is <strong>uptime-critical and repairable</strong>, not safety-critical. Therefore I chose <strong>AVAIL (Availability %)</strong> over POFOD or ROCOF: what matters is the proportion of time the platform is operational during high-demand windows, and the goal is to <em>minimize downtime duration</em>. Target: ≥ 99.5% availability during assignment-deadline and lab-exam windows, with no single failure exceeding 5 minutes of downtime.</p>
 
                 <h4>Proposed Strategy — Redundancy + Three Lines of Defense</h4>
                 <p>I propose a single architectural decision: run the orchestration layer as <strong>two redundant instances behind a load balancer</strong>, with the persistent store replicated to a hot standby. This is <em>Redundancy</em> (multiple identical components in parallel), not Diversity — appropriate here because the dominant risk is a single host or process failure, not a shared design fault. The strategy is reinforced by the <strong>3 Lines of Defense</strong> from the lecture: <em>Fault Avoidance</em> via code reviews and the 8 Commandments at the orchestration layer; <em>Fault Detection</em> via health-checks and contract tests at every external boundary; <em>Fault Tolerance</em> via the redundant instances + replicated store + retry-and-fallback around the feedback engine. Together these defenses keep AVAIL above target even when one component or upstream provider fails.</p>
 
                 <div class="diagram">
                     <h4>System Architecture Diagram</h4>
-                    <img src="CPIT-455-Portfolio/assests/archtitiure.jpg" alt="IntelliTA System Architecture">
+                    <img src="CPIT-455-Portfolio/assests/archtitiure.jpg" alt="Intelligent Teaching Assistant System Architecture">
                 </div>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank  For Instructor Use Only]<br><strong>Homework Due:</strong> Week 7</div>
@@ -336,8 +336,8 @@
             <p class="topic"><strong>Topics:</strong> Hazard → Accident → Damage, ALARP Triangle, Fault Tree Analysis, Safety Case</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1) — Portfolio Task: The Safety Argument</h4>
-                <h3>Safety-Critical Component: IntelliTA Automated Grading on a Lab Exam</h3>
-                <p>For this safety argument I selected the <strong>automated grading subsystem</strong> of IntelliTA on a lab-exam submission. This is the most safety-critical component of the platform: a wrong grade here directly damages a student's academic record, which the student cannot easily recover from.</p>
+                <h3>Safety-Critical Component: Intelligent Teaching Assistant Automated Grading on a Lab Exam</h3>
+                <p>For this safety argument I selected the <strong>automated grading subsystem</strong> of Intelligent Teaching Assistant on a lab-exam submission. This is the most safety-critical component of the platform: a wrong grade here directly damages a student's academic record, which the student cannot easily recover from.</p>
 
                 <h4>1. Identify the Hazard</h4>
                 <p><strong>Hazard:</strong> "Wrong grade issued for a correct submission on a lab exam." The harm is academic — a student who answered correctly is recorded as having failed, with consequences for their GPA and standing.</p>
@@ -412,7 +412,7 @@
             <h3>GROUP PHASE · Security &amp; Resilience + Software Reuse</h3>
             <p class="topic"><strong>Topics:</strong> Security Assurance Case, Resilience Patterns, Reuse Strategy</p>
             <div class="evidence-box">
-                <h4>My Evidence (V1) — Security, Resilience &amp; Reuse for IntelliTA</h4>
+                <h4>My Evidence (V1) — Security, Resilience &amp; Reuse for Intelligent Teaching Assistant</h4>
 
                 <p><strong>Security Assurance Case.</strong> Four components as taught: <em>System Description</em> — gateway-fronted platform, six independent services, only the orchestration layer is externally reachable. <em>Threat Analysis</em> — cheating student, malicious submission, external attacker, insider with stolen account. <em>Design Rationale</em> — defense-in-depth across five layers (Identity, Input, Isolation, Rate-limit, Audit), so each adversary must defeat multiple independent controls. <em>V&amp;V Results</em> — penetration tests, static analysis, dependency scans, and contract tests at every boundary.</p>
 
@@ -428,9 +428,9 @@
             <h3>GROUP PHASE · Distributed &amp; Component-Based Engineering</h3>
             <p class="topic"><strong>Topics:</strong> Distributed Architecture, CBSE, Requires/Provides Interfaces, Failover</p>
             <div class="evidence-box">
-                <h4>My Evidence (V1) — Distributed &amp; CBSE Plan for IntelliTA</h4>
+                <h4>My Evidence (V1) — Distributed &amp; CBSE Plan for Intelligent Teaching Assistant</h4>
 
-                <p><strong>CBSE — Development with Reuse.</strong> IntelliTA is composed, not hand-written. The team builds only the orchestration layer end-to-end; every other capability is reached through a Requires/Provides contract: UI <em>requires</em> Submission + Identity APIs and <em>provides</em> entry/rendering; Orchestration <em>requires</em> Feedback, Transcription, Sandbox, and Store APIs and <em>provides</em> Submission + Result APIs to the UI. Each reused component is replaceable through its contract. The integration risk — a reused component returning an out-of-range value with a "success" status — is handled by enforcing <em>Validate All Inputs</em> on every Provides response: out-of-contract values are rejected at the boundary and the Resilience-Case degraded path takes over. Contract tests run before every integration build.</p>
+                <p><strong>CBSE — Development with Reuse.</strong> Intelligent Teaching Assistant is composed, not hand-written. The team builds only the orchestration layer end-to-end; every other capability is reached through a Requires/Provides contract: UI <em>requires</em> Submission + Identity APIs and <em>provides</em> entry/rendering; Orchestration <em>requires</em> Feedback, Transcription, Sandbox, and Store APIs and <em>provides</em> Submission + Result APIs to the UI. Each reused component is replaceable through its contract. The integration risk — a reused component returning an out-of-range value with a "success" status — is handled by enforcing <em>Validate All Inputs</em> on every Provides response: out-of-contract values are rejected at the boundary and the Resilience-Case degraded path takes over. Contract tests run before every integration build.</p>
 
                 <p><strong>Distributed Architecture.</strong> Distributed Component Architecture, not flat Client–Server (cannot absorb deadline spikes) and not Peer-to-Peer (graded work needs a trusted authority). Five node classes scale on their own load profiles: <em>Edge</em> (UI, geographic volume), <em>Orchestration</em> (active sessions/min), <em>Compute</em> (feedback + transcription, queue depth), <em>Sandbox</em> (concurrent execution slots), <em>Data</em> (primary + replica, durability). Heavy artifacts are written once to Data; nodes exchange references, not payloads — Compute and Sandbox are co-located with Data, Edge terminates near the student.</p>
 
@@ -445,7 +445,7 @@
             <p class="topic"><strong>Topics:</strong> Systems of Systems, Testing Strategies, Coverage Metrics</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <p class="placeholder">[To be added once the Systems-of-Systems and Code Coverage assignment is released. Planned scope: describe how IntelliTA composes three independent systems (isolated execution environment, transcription service, external feedback engine) into one product surface, and document the test pyramid — unit tests on grading logic, contract tests on every external boundary, end-to-end tests on the submission path — with the coverage targets the team agreed to defend.]</p>
+                <p class="placeholder">[To be added once the Systems-of-Systems and Code Coverage assignment is released. Planned scope: describe how Intelligent Teaching Assistant composes three independent systems (isolated execution environment, transcription service, external feedback engine) into one product surface, and document the test pyramid — unit tests on grading logic, contract tests on every external boundary, end-to-end tests on the submission path — with the coverage targets the team agreed to defend.]</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]<br><strong>Group Project Due:</strong> Week 15 (20%)<br><strong>Lab Work Grade:</strong> Week 15 (10%)</div>
         </div>
@@ -465,10 +465,10 @@
     <section id="project">
         <h2>🚀 The Capstone Project</h2>
         <div style="background: #f0f9ff; border: 2px solid #0ea5e9; padding: 25px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="margin-top: 0; color: #0369a1;">IntelliTA — Intelligent Teaching Assistant</h3>
+            <h3 style="margin-top: 0; color: #0369a1;">Intelligent Teaching Assistant — Intelligent Teaching Assistant</h3>
             <p><strong>Domain:</strong> Education Technology / AI-Assisted Learning</p>
             <p><strong>Team Size:</strong> 4 Members</p>
-            <p>IntelliTA is a platform that gives students instant, automated feedback on their submissions and questions. Students log in, submit work or record a spoken question, and the system orchestrates a feedback engine, a transcription service, and an isolated execution environment to return graded, explained feedback in seconds. Dependability matters because the platform handles graded academic work — a wrong grade, a leaked submission, or an outage during a deadline directly damages a student's record.</p>
+            <p>Intelligent Teaching Assistant is a platform that gives students instant, automated feedback on their submissions and questions. Students log in, submit work or record a spoken question, and the system orchestrates a feedback engine, a transcription service, and an isolated execution environment to return graded, explained feedback in seconds. Dependability matters because the platform handles graded academic work — a wrong grade, a leaked submission, or an outage during a deadline directly damages a student's record.</p>
         </div>
 
         <h3>📊 Dependability Metrics</h3>
@@ -519,7 +519,7 @@
         <div class="reflection-card">
             <h4>❓ What changed in how I think?</h4>
             <blockquote>
-                <p>"Before HIMMA, I thought engineering meant writing code that runs. After working on IntelliTA through this course's lens, I see it as building <em>justifiable</em> code — every decision must be traceable to a risk it reduces."</p>
+                <p>"Before HIMMA, I thought engineering meant writing code that runs. After working on Intelligent Teaching Assistant through this course's lens, I see it as building <em>justifiable</em> code — every decision must be traceable to a risk it reduces."</p>
             </blockquote>
         </div>
 
