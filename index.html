@@ -206,6 +206,34 @@
             max-width: 80%; height: auto; border: 1px solid #ccc;
             padding: 10px; background-color: #fff;
         }
+        .cv-modal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(15, 23, 42, 0.85); z-index: 9999;
+            align-items: center; justify-content: center; padding: 30px;
+        }
+        .cv-modal.open { display: flex; }
+        .cv-modal .cv-content {
+            background: white; width: 100%; max-width: 900px; height: 90vh;
+            border-radius: 12px; overflow: hidden; position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            display: flex; flex-direction: column;
+        }
+        .cv-modal .cv-header {
+            background: var(--dark); color: white; padding: 14px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .cv-modal .cv-header h3 { color: white; margin: 0; font-size: 1.1em; }
+        .cv-modal .cv-actions { display: flex; gap: 10px; align-items: center; }
+        .cv-modal .cv-actions a {
+            color: white; text-decoration: none; padding: 6px 14px;
+            border-radius: 6px; background: var(--primary); font-size: 0.9em;
+            font-weight: 600;
+        }
+        .cv-modal .cv-close {
+            background: transparent; color: white; border: none;
+            font-size: 1.6em; cursor: pointer; line-height: 1; padding: 0 6px;
+        }
+        .cv-modal iframe { flex: 1; width: 100%; border: 0; }
     </style>
 </head>
 <body>
@@ -227,9 +255,9 @@
         <h2>👤 About Me</h2>
         <div class="grid">
             <div>
-                <p>I am an Information Technology student at <strong>King Abdulaziz University</strong>, currently enrolled in <strong>CPIT-455 Software Engineering II</strong> under the HIMMA curriculum — a program that moves beyond passive content toward active proof.</p>
+                <p>I am an Information Technology student at <strong>King Abdulaziz University</strong>, currently enrolled in <strong>CPIT-455 Software Engineering II</strong> under the HIMMA curriculum, a program that moves beyond passive content toward active proof.</p>
                 <p>My goal is to become not just a programmer, but an engineer who understands dependability, safety, reliability, and the human responsibility that comes with building systems others trust.</p>
-                <p>This portfolio represents every week of effort — small proofs that compound into professional-grade evidence of real engineering thinking.</p>
+                <p>This portfolio represents every week of effort: small proofs that compound into professional-grade evidence of real engineering thinking.</p>
                 <div class="stats-bar">
                     <div class="stat-item"><span>16</span> Weeks</div>
                     <div class="stat-item"><span>V1</span> Iteration</div>
@@ -266,7 +294,7 @@
 
     <section id="evidence">
         <h2>📂 Weekly Evidence</h2>
-        <p><em>Evidence = Clear Thinking, not perfection. Each week I produce a small proof of learning — a focused answer, a diagram, a test case, or a self-reflection. This is the record.</em></p>
+        <p><em>Evidence = Clear Thinking, not perfection. Each week I produce a small proof of learning: a focused answer, a diagram, a test case, or a self-reflection. This is the record.</em></p>
         <div class="privacy-notice">
             <strong>📌 Privacy Notice:</strong> Do not include sensitive personal information (ID numbers, home addresses, phone numbers) in your evidence. Use your university email for contact.
         </div>
@@ -277,7 +305,7 @@
             <p class="topic"><strong>Topics:</strong> Evidence, Portfolio, Iteration, H-Stack Mindset</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <p>I created my portfolio folder structure and wrote my first goals + reflection. As a small proof I clarified <strong>Reliability vs Availability</strong> using <strong>Intelligent Teaching Assistant</strong> — a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. <em>Available-but-unreliable:</em> the platform is reachable but returns wrong feedback. <em>Reliable-but-unavailable:</em> the feedback is correct but the platform is down on a lab-exam day. The HIMMA shift changed how I approach every task — I now build proof, not just submissions.</p>
+                <p>I created my portfolio folder structure and wrote my first goals and reflection. As a small proof I clarified <strong>Reliability vs Availability</strong> using <strong>Intelligent Teaching Assistant</strong>, a platform that gives students automated feedback on their <strong>assignments, labs, and lab exams</strong>. <em>Available-but-unreliable:</em> the platform is reachable but returns wrong feedback. <em>Reliable-but-unavailable:</em> the feedback is correct but the platform is down on a lab-exam day. The HIMMA shift changed how I approach every task; I now build proof, not just submissions.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
@@ -314,13 +342,13 @@
 
                 <p>Intelligent Teaching Assistant has a dynamic usage pattern. Traffic spikes the night before assignment deadlines and during scheduled lab sessions and lab exams. During those windows the system must handle many concurrent submissions and feedback requests without losing or duplicating any of them. Therefore <strong>scalability under load</strong> and <strong>graceful degradation</strong> are critical to maintain continuous service.</p>
 
-                <p>The most critical dependability attribute for this system is <strong>availability</strong>. If the platform is down during a lab exam or at an assignment deadline, students cannot submit and the educational mission fails. <strong>Reliability</strong> is equally important — a duplicated grade or a lost submission directly damages a student's record. <strong>Security</strong> protects student data and grades, while <strong>maintainability</strong> lets us push fixes without taking the platform down mid-session.</p>
+                <p>The most critical dependability attribute for this system is <strong>availability</strong>. If the platform is down during a lab exam or at an assignment deadline, students cannot submit and the educational mission fails. <strong>Reliability</strong> is equally important; a duplicated grade or a lost submission directly damages a student's record. <strong>Security</strong> protects student data and grades, while <strong>maintainability</strong> lets us push fixes without taking the platform down mid-session.</p>
 
                 <h4>Reliability Metric Choice — AVAIL</h4>
                 <p>Following the slide's guidance ("System Type &amp; Risk Profile"), Intelligent Teaching Assistant is <strong>uptime-critical and repairable</strong>, not safety-critical. Therefore I chose <strong>AVAIL (Availability %)</strong> over POFOD or ROCOF: what matters is the proportion of time the platform is operational during high-demand windows, and the goal is to <em>minimize downtime duration</em>. Target: ≥ 99.5% availability during assignment-deadline and lab-exam windows, with no single failure exceeding 5 minutes of downtime.</p>
 
                 <h4>Proposed Strategy — Redundancy + Three Lines of Defense</h4>
-                <p>I propose a single architectural decision: run the orchestration layer as <strong>two redundant instances behind a load balancer</strong>, with the persistent store replicated to a hot standby. This is <em>Redundancy</em> (multiple identical components in parallel), not Diversity — appropriate here because the dominant risk is a single host or process failure, not a shared design fault. The strategy is reinforced by the <strong>3 Lines of Defense</strong> from the lecture: <em>Fault Avoidance</em> via code reviews and the 8 Commandments at the orchestration layer; <em>Fault Detection</em> via health-checks and contract tests at every external boundary; <em>Fault Tolerance</em> via the redundant instances + replicated store + retry-and-fallback around the feedback engine. Together these defenses keep AVAIL above target even when one component or upstream provider fails.</p>
+                <p>I propose a single architectural decision: run the orchestration layer as <strong>two redundant instances behind a load balancer</strong>, with the persistent store replicated to a hot standby. This is <em>Redundancy</em> (multiple identical components in parallel), not Diversity, appropriate here because the dominant risk is a single host or process failure, not a shared design fault. The strategy is reinforced by the <strong>3 Lines of Defense</strong> from the lecture: <em>Fault Avoidance</em> via code reviews and the 8 Commandments at the orchestration layer; <em>Fault Detection</em> via health-checks and contract tests at every external boundary; <em>Fault Tolerance</em> via the redundant instances + replicated store + retry-and-fallback around the feedback engine. Together these defenses keep AVAIL above target even when one component or upstream provider fails.</p>
 
                 <div class="diagram">
                     <h4>System Architecture Diagram</h4>
@@ -340,7 +368,7 @@
                 <p>For this safety argument I selected the <strong>automated grading subsystem</strong> of Intelligent Teaching Assistant on a lab-exam submission. This is the most safety-critical component of the platform: a wrong grade here directly damages a student's academic record, which the student cannot easily recover from.</p>
 
                 <h4>1. Identify the Hazard</h4>
-                <p><strong>Hazard:</strong> "Wrong grade issued for a correct submission on a lab exam." The harm is academic — a student who answered correctly is recorded as having failed, with consequences for their GPA and standing.</p>
+                <p><strong>Hazard:</strong> "Wrong grade issued for a correct submission on a lab exam." The harm is academic: a student who answered correctly is recorded as having failed, with consequences for their GPA and standing.</p>
 
                 <h4>2. Risk Assessment</h4>
                 <p>A simple matrix defining the Probability and Severity of this hazard:</p>
@@ -374,7 +402,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>The realistic operating point is <em>Low Probability × High Severity</em> — rare, but when it happens the harm is course-failing. That cell is <strong>Intolerable</strong>, so the hazard must be designed out, not merely tested for.</p>
+                <p>The realistic operating point is <em>Low Probability × High Severity</em>: rare, but when it happens the harm is course-failing. That cell is <strong>Intolerable</strong>, so the hazard must be designed out, not merely tested for.</p>
 
                 <h4>3. Safety Requirement (Shall-Not)</h4>
                 <blockquote style="background:#f1f5f9; border-left:4px solid var(--danger); padding:15px; margin:15px 0; font-style:italic;">
@@ -402,7 +430,7 @@
         │                │          │ output           │          │                  │
         └────────────────┘          └──────────────────┘          └──────────────────┘
                 </pre>
-                <p><strong>Design-In Decision:</strong> the Shall-Not requirement above is the <em>protection system</em> that breaks every branch of this tree before the wrong grade is ever shown — Safety is designed in, not tested in.</p>
+                <p><strong>Design-In Decision:</strong> the Shall-Not requirement above is the <em>protection system</em> that breaks every branch of this tree before the wrong grade is ever shown. Safety is designed in, not tested in.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
@@ -414,11 +442,76 @@
             <div class="evidence-box">
                 <h4>My Evidence (V1) — Security, Resilience &amp; Reuse for Intelligent Teaching Assistant</h4>
 
-                <p><strong>Security Assurance Case.</strong> Four components as taught: <em>System Description</em> — gateway-fronted platform, six independent services, only the orchestration layer is externally reachable. <em>Threat Analysis</em> — cheating student, malicious submission, external attacker, insider with stolen account. <em>Design Rationale</em> — defense-in-depth across five layers (Identity, Input, Isolation, Rate-limit, Audit), so each adversary must defeat multiple independent controls. <em>V&amp;V Results</em> — penetration tests, static analysis, dependency scans, and contract tests at every boundary.</p>
+                <p><strong>Security Assurance Case.</strong> Four components as taught. <em>System Description:</em> gateway-fronted platform, six independent services, only the orchestration layer is externally reachable. <em>Threat Analysis:</em> cheating student, malicious submission, external attacker, insider with stolen account. <em>Design Rationale:</em> defense-in-depth across five layers (Identity, Input, Isolation, Rate-limit, Audit), so each adversary must defeat multiple independent controls. <em>V&amp;V Results:</em> penetration tests, static analysis, dependency scans, and contract tests at every boundary.</p>
 
-                <p><strong>Resilience Case.</strong> Failure chain: a missing timeout on the feedback call (<em>fault</em>) saturates the request pool (<em>error</em>) and produces indefinite spinners at peak load (<em>failure</em>). R&amp;R: <em>Recognition</em> via health probes + p95-latency alarms; <em>Resistance</em> via circuit breaker + degraded mode that accepts and queues the submission and delivers feedback async on recovery — no submission is ever lost. The Swiss Cheese Model stacks Technical, Human, and Organizational layers owned by different roles so holes do not align; an on-call engineer is paged when the breaker exceeds its self-recovery budget, and the decision is logged immutably.</p>
+                <p><strong>Resilience Case.</strong> Failure chain: a missing timeout on the feedback call (<em>fault</em>) saturates the request pool (<em>error</em>) and produces indefinite spinners at peak load (<em>failure</em>). A human expert intervenes only when automated defenses are exhausted: when the circuit breaker exceeds its self-recovery budget, the on-call engineer is paged, decides between extending the degraded mode or forcing a manual fail-over, and the decision is logged immutably for post-incident review.</p>
 
-                <p><strong>Reuse Strategy.</strong> Application Frameworks for orchestration/UI + COTS/Service Integration for feedback, transcription, and isolated execution, assembled as a Software Product Line: <em>Core</em> (orchestration, identity, store schema, audit log, isolated execution, transcription) is locked; <em>Specialized</em> (rubrics, prompt templates, dashboards, lab timing) is configuration-as-data. The Ariane 5 lesson is enforced through the <em>Validate All Inputs</em> commandment — every value crossing into the orchestration layer is range- and type-checked, the specific defense the original silent overflow lacked.</p>
+                <h4>R&amp;R Strategies (Event / Recognition / Resistance)</h4>
+                <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background:#1e293b; color:white;">
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Event</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Recognition</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Resistance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Feedback-engine unavailability</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">1. Watchdog timer on the feedback call<br>2. Health probe on the feedback service<br>3. p95-latency alarm to on-call</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">1. Circuit breaker trips to degraded mode<br>2. Submission is queued for async feedback on recovery<br>3. Backup feedback path on a secondary instance</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Submission database corruption</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">1. Record-level cryptographic checksums<br>2. Regular auto-checking of database integrity<br>3. Reporting channel for incorrect grades</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">1. Replayable transaction log to update DB backup with recent submissions<br>2. Maintenance of local submission copies + restore-from-backup procedure</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Swiss Cheese Model — Defensive Layers</h4>
+                <p>Three principles from the slide: <em>add more layers of defence, make the defences different so the holes do not line up, and reduce the number of holes.</em></p>
+                <div class="diagram" style="background:white; padding:15px; border-radius:8px; border:1px solid #e2e8f0;">
+                    <img src="CPIT-455-Portfolio/assests/swiss-cheese.svg" alt="Swiss Cheese Model — Intelligent Teaching Assistant" style="width:100%; max-width:810px; display:block; margin:0 auto;">
+                </div>
+                <p>Front slices are <strong>Technical defenses</strong> (authentication, input validation, circuit breakers/health probes); the back slice is the <strong>Sociotechnical defense</strong> (on-call engineer + mandatory post-incident review). Each slice has different holes, so an Active failure or attack arrow cannot pass through all of them on the same axis. When the arrow does get through the technical slices, for example when the breaker exhausts its self-recovery budget, the sociotechnical slice catches it: the on-call engineer takes control (human-in-the-loop), decides between extending degraded mode or forcing a manual fail-over, and the decision is logged immutably for post-incident review.</p>
+
+                <h4>Reuse Strategy — Position in the Reuse Landscape</h4>
+                <p><strong>Chosen approach:</strong> a hybrid of <strong>Application Frameworks</strong> + <strong>Application System Integration</strong>, assembled as a <strong>Software Product Line (SPL)</strong>. Justified against the slide's <em>Reuse Planning Factors</em>: development schedule is short (one semester), team skills are limited to a few members so reused components beat hand-rolled ones, software criticality is high (graded academic work), and the application domain (automated student feedback) has mature off-the-shelf options for transcription, sandboxed execution, and feedback engines.</p>
+
+                <h4>Product Line Architecture (Core vs Specialized)</h4>
+                <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background:#1e293b; color:white;">
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Layer</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Components</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Modification (per slide)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Core</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Orchestration, identity, store schema, audit log, isolated execution, transcription</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><span style="color:#dc2626;">NOT modified</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Configurable</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Feedback engine wrapper, rate limits, retry policy, model selection</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><span style="color:#b45309;">Modified &amp; configured</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Specialized</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Rubrics, prompt templates, dashboards, lab timing, course-specific UI</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><span style="color:#16a34a;">Replaced some or ALL</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Validation &amp; The Ariane 5 Lesson</h4>
+                <p>The Ariane 5 failure happened because a module reused from the slower Ariane 4 overflowed under higher speeds and the value was never validated. To prevent that here: every reused component is wrapped behind a contract test that runs before every integration build, with range/type checks on every value crossing into the orchestration layer. The Reliable Programming Commandment enforced is <strong>"Validate All Inputs"</strong>: out-of-contract values are rejected at the boundary and the Resilience-Case degraded path takes over instead of producing a silent failure.</p>
+
+                <h4>Industry Alignment &amp; Bridge to Assignment 6 (Resilience)</h4>
+                <p><strong>Cloud-based platforms</strong> (slide 22): feedback, transcription, and sandboxed execution are consumed as cloud services, isolating each reused component so a failure in one cannot cascade into the others. This is what makes the Reuse Strategy a direct enabler of the Resilience Case: the same circuit-breaker and queued degraded path from Assignment 6 only works because each reused service sits behind its own isolation boundary. Reuse here is not a cost-saving shortcut; it is the mechanism that lets Recognition &amp; Resistance act at a single service boundary instead of the whole monolith.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
@@ -428,24 +521,124 @@
             <h3>GROUP PHASE · Distributed &amp; Component-Based Engineering</h3>
             <p class="topic"><strong>Topics:</strong> Distributed Architecture, CBSE, Requires/Provides Interfaces, Failover</p>
             <div class="evidence-box">
-                <h4>My Evidence (V1) — Distributed &amp; CBSE Plan for Intelligent Teaching Assistant</h4>
+                <h4>CBSE Strategy</h4>
 
-                <p><strong>CBSE — Development with Reuse.</strong> Intelligent Teaching Assistant is composed, not hand-written. The team builds only the orchestration layer end-to-end; every other capability is reached through a Requires/Provides contract: UI <em>requires</em> Submission + Identity APIs and <em>provides</em> entry/rendering; Orchestration <em>requires</em> Feedback, Transcription, Sandbox, and Store APIs and <em>provides</em> Submission + Result APIs to the UI. Each reused component is replaceable through its contract. The integration risk — a reused component returning an out-of-range value with a "success" status — is handled by enforcing <em>Validate All Inputs</em> on every Provides response: out-of-contract values are rejected at the boundary and the Resilience-Case degraded path takes over. Contract tests run before every integration build.</p>
+                <h4>1) Position in CBSE — Development <em>with</em> Reuse</h4>
+                <p>Intelligent Teaching Assistant is built through <strong>Development with Reuse</strong>, not Development <em>for</em> Reuse. The team is not shipping reusable feedback engines or transcription libraries to other projects; it is composing them into a working teaching assistant. The planning factors push the same way: the <strong>schedule</strong> is fixed to the academic term, the <strong>budget</strong> cannot absorb building a feedback model from scratch, and <strong>market availability</strong> of mature feedback, transcription, and sandboxed-execution components is high. Building these in-house would duplicate solved problems and burn the schedule on capabilities that are not the product's differentiator.</p>
 
-                <p><strong>Distributed Architecture.</strong> Distributed Component Architecture, not flat Client–Server (cannot absorb deadline spikes) and not Peer-to-Peer (graded work needs a trusted authority). Five node classes scale on their own load profiles: <em>Edge</em> (UI, geographic volume), <em>Orchestration</em> (active sessions/min), <em>Compute</em> (feedback + transcription, queue depth), <em>Sandbox</em> (concurrent execution slots), <em>Data</em> (primary + replica, durability). Heavy artifacts are written once to Data; nodes exchange references, not payloads — Compute and Sandbox are co-located with Data, Edge terminates near the student.</p>
+                <h4>2) Component Composition — Requires / Provides Interfaces</h4>
+                <p>The team builds only the orchestration layer end-to-end; every other capability is reached through an explicit Requires / Provides contract so any component can be replaced without rewriting its neighbours.</p>
+                <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background:#1e293b; color:white;">
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Component</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;"><em>Requires</em></th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;"><em>Provides</em></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>UI (Edge)</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Submission API, Identity API</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Entry &amp; rendering surface to the student</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Orchestration</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Feedback API, Transcription API, Sandbox API, Store API</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Submission API, Result API</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Feedback (reused)</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Submission payload (validated)</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Feedback API</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Transcription (reused)</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Audio reference</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Transcription API</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Sandbox (reused)</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Code artefact, resource caps</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Sandbox API (bounded execution result)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Store</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Identity assertion</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Store API (durable read/write)</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <p><strong>Failover &amp; Security in Transit.</strong> Stateless tiers sit behind a health-checked load balancer; a failed node drops out within one probe interval. The Data tier runs primary + replica with synchronous replication for graded results — no commit is lost on failover. A partition between Orchestration and Compute trips the circuit breaker into the degraded path, keeping the UI alive. Every inter-node link uses <strong>TLS 1.3 with mutual authentication</strong>, so a compromised network cannot impersonate a node. Cloud capacity is added at deadline spikes and released afterwards; reused capabilities are consumed as SaaS — the same efficiency argument as the Reuse Strategy, now at the infrastructure layer.</p>
+                <h4>3) Validation &amp; Risk Measurement</h4>
+                <p><strong>Integration testing plan.</strong> Each Provides interface ships with a contract test that runs before every integration build; the orchestration layer is exercised end-to-end against contract doubles in CI and against the real reused components in a staging pipeline before release. <strong>Named risk:</strong> a reused component returns an out-of-range value with a <em>success</em> status, the same Ariane-5-style failure carried forward from the Reuse Strategy. <strong>Mitigation:</strong> <em>Validate All Inputs</em> is enforced at every Provides boundary; out-of-contract values are rejected at the boundary and the Resilience-Case degraded path (Assignment 6) takes over instead of propagating a corrupt result into the gradebook.</p>
+
+                <h4>4) Industry Alignment &amp; Bridge to the Reuse Strategy</h4>
+                <p><strong>Composable AI</strong> is the alignment: feedback and transcription are reached as composable model services behind stable Provides interfaces, not embedded inside the orchestrator. This continues the efficiency goals set in Assignment 7: the Reuse Strategy chose <em>Application System Integration</em> as the landscape position, and CBSE is what makes that integration safe in practice by turning every reused capability into a replaceable, contract-tested component. The schedule and budget savings claimed in Reuse only materialise if integration risk is contained at the boundary, which is exactly what the Requires / Provides discipline above guarantees.</p>
+
+                <h4>Distributed Architecture Plan (Assignment 9)</h4>
+
+                <h4>1) Position in the Distributed Landscape</h4>
+                <p><strong>Distributed Component Architecture</strong> is the chosen model, not flat <em>Client–Server</em> (a single application tier cannot absorb deadline-week submission spikes without over-provisioning every other capability) and not <em>Peer-to-Peer</em> (graded work requires a trusted authority for identity, ordering, and the official result). Distributed Component Architecture lets each capability scale on its own load profile, lets reused services (from the CBSE plan above) sit behind independent boundaries, and keeps a single authoritative gradebook, matching the resource-sharing and peak-load requirements directly.</p>
+
+                <h4>2) Nodes, Component Distribution &amp; Low-Latency Data Transfer</h4>
+                <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background:#1e293b; color:white;">
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Node class</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Components hosted</th>
+                            <th style="padding:10px; border:1px solid #cbd5e1;">Scales on</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Edge</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">UI, static assets, TLS termination</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Geographic volume</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Orchestration</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Submission API, Result API, session state</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Active sessions / min</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Compute</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Feedback workers, Transcription workers</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Queue depth</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Sandbox</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Isolated execution slots (bounded CPU and memory)</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Concurrent slots</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px; border:1px solid #cbd5e1;"><strong>Data</strong></td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Primary and replica store, artefact blob store</td>
+                            <td style="padding:10px; border:1px solid #cbd5e1;">Durability and read load</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Low-latency data transfer.</strong> Heavy artefacts (audio, code, large submissions) are written <em>once</em> to the Data tier; Orchestration, Compute, and Sandbox then exchange <em>references</em>, not payloads. Edge terminates close to the student so request round-trips stay short, and Compute and Sandbox are co-located with Data in the same availability zone so worker pulls are local-network reads, not cross-region traffic.</p>
+
+                <h4>3) Reliability &amp; Security — Failover Plan + Protocol</h4>
+                <p><strong>Failover (network outage / node failure).</strong> Stateless tiers (Edge, Orchestration, Compute, Sandbox) sit behind a health-checked load balancer; a failed node drops out within one probe interval and traffic is shifted to healthy peers without restarting the platform. The Data tier runs <em>primary plus replica with synchronous replication</em> for graded results, so no committed grade is lost on failover. A partition between Orchestration and Compute trips the Assignment-6 circuit breaker into the queued degraded path: the UI stays alive, students keep submitting, and feedback is delivered when the link returns. <strong>Security protocol in transit:</strong> every inter-node link uses <strong>TLS 1.3 with mutual authentication</strong>, so a compromised network segment cannot impersonate a node or read graded traffic.</p>
+
+                <h4>4) Industry Alignment &amp; Bridge to Continuity &amp; Resilience</h4>
+                <p>The plan leverages <strong>Cloud Computing and SaaS</strong>: Compute and Sandbox capacity is added at deadline spikes and released afterwards (on-demand resources, no permanent over-provisioning), and the reused feedback and transcription capabilities from the CBSE and Reuse plans are consumed as SaaS behind their Provides interfaces, with no in-house GPUs to operate. This is what turns the distributed choice into a Continuity &amp; Resilience guarantee: a single node failure is absorbed by a peer, a single service outage is absorbed by the degraded path, and a deadline-week load spike is absorbed by elastic cloud capacity, so the platform stays available end-to-end instead of crashing the moment one component or one network link fails.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
 
         <div class="card evidence-card">
             <span class="week-badge">WEEK 13–14</span>
-            <h3>GROUP PHASE · Systems of Systems + Code Coverage</h3>
-            <p class="topic"><strong>Topics:</strong> Systems of Systems, Testing Strategies, Coverage Metrics</p>
+            <h3>Multi-tier &amp; Middleware Strategy</h3>
+            <p class="topic"><strong>Topics:</strong> Multi-Tier Architecture, Middleware, Master–Slave, Microservices</p>
             <div class="evidence-box">
                 <h4>My Evidence (V1):</h4>
-                <p class="placeholder">[To be added once the Systems-of-Systems and Code Coverage assignment is released. Planned scope: describe how Intelligent Teaching Assistant composes three independent systems (isolated execution environment, transcription service, external feedback engine) into one product surface, and document the test pyramid — unit tests on grading logic, contract tests on every external boundary, end-to-end tests on the submission path — with the coverage targets the team agreed to defend.]</p>
+                <p><strong>Tier Choice.</strong> Intelligent Teaching Assistant uses a <strong>Multi-Tier architecture</strong>, not Thin-client (would push all load onto one server and collapse at deadline spikes) and not Fat-client (cannot trust grading logic on a student device). Browsers do only rendering and input validation; servers carry orchestration, grading, and persistence, the same shape e-commerce platforms use to survive bursty traffic.</p>
+                <p><strong>The Tiers.</strong> <em>Presentation Tier:</em> student and instructor web UI for submission forms, dashboards, and feedback views. <em>Application Tier:</em> orchestration service that routes work to the feedback engine, transcription service, and isolated execution environment, and enforces auth and grading rules. <em>Data Tier:</em> primary plus replica store for submissions, grades, and audit logs. <strong>Middleware</strong> sits between the Application Tier and these independent services as a message broker and API gateway; it queues feedback jobs, retries on transient failure, and translates each service's contract so the Application Tier sees one uniform interface.</p>
+                <p><strong>Localized Control and Master/Slave.</strong> A Data Tier outage must not silently corrupt the UI: the Application Tier returns an explicit "submission queued, grading delayed" state, the UI shows a banner, and the submission is buffered in the middleware queue until the Data Tier recovers, so there is no silent failure and no total collapse. Inside the grading pipeline, the orchestrator is the <em>Master</em>: it owns the job table, assigns work, and tracks deadlines. Sandbox and transcription workers are <em>Slaves</em>: they pull a task, execute, and report back. If a Slave dies mid-task, the Master reassigns, and the student still gets real-time feedback.</p>
+                <p><strong>Industry Alignment.</strong> The Application Tier is decomposed as <strong>Microservices</strong> (auth, submission, grading, feedback, transcription) so each can scale and deploy independently; grading capacity grows at deadline weeks without redeploying auth, and a new feedback model ships without touching the UI. Isolating tiers is what makes the system maintainable today and adaptable tomorrow: the Presentation Tier can be re-skinned for a mobile client, the Data Tier can migrate stores, and the Application Tier can swap a service, each without rewriting the others.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]<br><strong>Group Project Due:</strong> Week 15 (20%)<br><strong>Lab Work Grade:</strong> Week 15 (10%)</div>
         </div>
@@ -456,7 +649,7 @@
             <p class="topic"><strong>Topics:</strong> Final Integration, Portfolio Compilation, Presentation</p>
             <div class="evidence-box">
                 <h4>My Evidence:</h4>
-                <p class="placeholder">[Final reflection — to be written at the end of the semester. The most important lesson, and how it changed how I think about software engineering.]</p>
+                <p>When I started this course I thought software engineering meant writing code that runs; I now think it means writing code I can <em>justify</em>. Building Intelligent Teaching Assistant taught me that dependability is five attributes, not one, and a system can be perfectly reliable and still unsafe. Reuse is a contract, not a shortcut, and resilience is sociotechnical: the circuit breaker buys time, but a human still has to decide. The biggest shift is the difference between a submission and a proof, where a proof states the risk it addresses and the evidence it works. That is the lens I will carry into every system I touch after this.</p>
             </div>
             <div class="instructor-only"><strong>📝 Instructor Score:</strong> [Leave Blank — For Instructor Use Only]</div>
         </div>
@@ -465,10 +658,10 @@
     <section id="project">
         <h2>🚀 The Capstone Project</h2>
         <div style="background: #f0f9ff; border: 2px solid #0ea5e9; padding: 25px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="margin-top: 0; color: #0369a1;">Intelligent Teaching Assistant — Intelligent Teaching Assistant</h3>
+            <h3 style="margin-top: 0; color: #0369a1;">Intelligent Teaching Assistant</h3>
             <p><strong>Domain:</strong> Education Technology / AI-Assisted Learning</p>
             <p><strong>Team Size:</strong> 4 Members</p>
-            <p>Intelligent Teaching Assistant is a platform that gives students instant, automated feedback on their submissions and questions. Students log in, submit work or record a spoken question, and the system orchestrates a feedback engine, a transcription service, and an isolated execution environment to return graded, explained feedback in seconds. Dependability matters because the platform handles graded academic work — a wrong grade, a leaked submission, or an outage during a deadline directly damages a student's record.</p>
+            <p>Intelligent Teaching Assistant is a platform that gives students instant, automated feedback on their submissions and questions. Students log in, submit work or record a spoken question, and the system orchestrates a feedback engine, a transcription service, and an isolated execution environment to return graded, explained feedback in seconds. Dependability matters because the platform handles graded academic work, where a wrong grade, a leaked submission, or an outage during a deadline directly damages a student's record.</p>
         </div>
 
         <h3>📊 Dependability Metrics</h3>
@@ -482,10 +675,10 @@
 
         <h3>🏗 Architecture &amp; Engineering</h3>
         <div class="grid">
-            <div class="card"><h4>🔄 Software Reuse</h4><p>Mature open-source components were reused for execution isolation, transcription, persistence, and the user interface — every choice justified against the risk it reduces.</p></div>
+            <div class="card"><h4>🔄 Software Reuse</h4><p>Mature open-source components were reused for execution isolation, transcription, persistence, and the user interface; every choice is justified against the risk it reduces.</p></div>
             <div class="card"><h4>🌐 Distributed Architecture</h4><p>Gateway + Independent Services: an orchestration layer routes requests to the feedback engine, transcription service, isolated execution environment, and persistent store.</p></div>
             <div class="card"><h4>🧩 Component-Based</h4><p>Each service is an independently deployable component with a documented interface. Replacing the feedback engine does not touch the user interface.</p></div>
-            <div class="card"><h4>🔗 Systems of Systems</h4><p>Composes an isolated execution environment, a transcription service, and an external feedback engine — three independent systems integrated under one product surface.</p></div>
+            <div class="card"><h4>🔗 Systems of Systems</h4><p>Composes an isolated execution environment, a transcription service, and an external feedback engine: three independent systems integrated under one product surface.</p></div>
             <div class="card"><h4>✅ Code Coverage</h4><p>Unit tests on authentication and grading logic, contract tests at every external boundary, and end-to-end tests for the submission path.</p></div>
             <div class="card"><h4>🛡 Hazard Analysis</h4><p>Top hazard: escape from the isolated execution environment by a malicious submission. Mitigated via stripped, read-only environment, no network egress, resource caps, and an ephemeral workspace.</p></div>
         </div>
@@ -494,7 +687,7 @@
         <ul>
             <li><strong>Risk Metric:</strong> POFOD &lt; 0.001 + 99.5% availability target</li>
             <li><strong>Architecture Pattern:</strong> Gateway + Independent Services</li>
-            <li><strong>Safety Standard:</strong> ALARP — execution isolation + human-in-the-loop on graded feedback</li>
+            <li><strong>Safety Standard:</strong> ALARP via execution isolation and human-in-the-loop on graded feedback</li>
             <li><strong>V&amp;V Evidence:</strong> Unit + contract + end-to-end tests, plus a chaos test for feedback-engine outage</li>
         </ul>
 
@@ -519,21 +712,21 @@
         <div class="reflection-card">
             <h4>❓ What changed in how I think?</h4>
             <blockquote>
-                <p>"Before HIMMA, I thought engineering meant writing code that runs. After working on Intelligent Teaching Assistant through this course's lens, I see it as building <em>justifiable</em> code — every decision must be traceable to a risk it reduces."</p>
+                <p>"I used to start from the feature and work outward. Now I start from the failure I refuse to allow and work backward. The redundancy plan, the Shall-Not requirement, the Validate-All-Inputs rule, the Swiss Cheese layers, every choice on Intelligent Teaching Assistant is a decision about which risk I am buying down, not which tool I am using."</p>
             </blockquote>
         </div>
 
         <div class="reflection-card">
             <h4>⚖️ Safety vs Reliability — My understanding</h4>
             <blockquote>
-                <p>"A system can perfectly follow its specification and still cause harm. An automated grader can be 100% reliable in returning <em>some</em> answer and still be unsafe if that answer is confidently wrong on a real exam. Reliability is conformance to spec; Safety is freedom from harm — and the spec itself can be wrong."</p>
+                <p>"Reliability asks <em>did the system do what the spec said?</em> Safety asks <em>did the spec ask for the right thing?</em> An automated grader on Intelligent Teaching Assistant can hit 100% reliability by always returning an answer, and still be unsafe if that answer is confidently wrong on a lab exam. Reliability is conformance; safety is freedom from harm, and the spec itself can be the bug."</p>
             </blockquote>
         </div>
 
         <div class="reflection-card">
             <h4>💼 What I will carry into my career</h4>
             <blockquote>
-                <p>"The burden of proof is on the engineer. I will not ship a system that touches student records, payments, or health without a written Safety Case — and I now know how to build one."</p>
+                <p>"The burden of proof sits with the engineer, not the user. I will not ship a system that touches student records, payments, or health without a written Safety Case, a named Reliability metric, and a degraded path I have actually tested. After this course I know how to build each of those, and that is the standard I will hold my own work to from now on."</p>
             </blockquote>
         </div>
     </section>
@@ -548,7 +741,8 @@
             <a href="https://www.linkedin.com/in/amerbugshan/" class="contact-btn linkedin" target="_blank">💼 LinkedIn</a>
             <a href="mailto:abugshan0013@stu.kau.edu.sa" class="contact-btn email">✉️ Email</a>
             <a href="https://github.com/AmerBugshan" class="contact-btn github" target="_blank">💻 GitHub</a>
-            <a href="#" class="contact-btn cv">📄 Download CV</a>
+            <a href="#" class="contact-btn cv" onclick="document.getElementById('cv-modal').classList.add('open'); return false;">📄 View CV</a>
+            <a href="CPIT-455-Portfolio/assests/AMER_BUGSHAN_CV.pdf" class="contact-btn cv" download>⬇ Download CV</a>
         </div>
         <div style="text-align: center; margin-top: 30px;">
             <a href="https://www.linkedin.com/in/amerbugshan/" class="btn" target="_blank">View Full LinkedIn Profile →</a>
@@ -565,6 +759,24 @@
             <p>🏛 Department of Information Technology · Spring 2026</p>
         </div>
     </footer>
+
+    <div id="cv-modal" class="cv-modal" onclick="if (event.target === this) this.classList.remove('open');">
+        <div class="cv-content">
+            <div class="cv-header">
+                <h3>📄 Amer Bugshan — CV</h3>
+                <div class="cv-actions">
+                    <a href="CPIT-455-Portfolio/assests/AMER_BUGSHAN_CV.pdf" download>⬇ Download</a>
+                    <button class="cv-close" onclick="document.getElementById('cv-modal').classList.remove('open');" aria-label="Close">×</button>
+                </div>
+            </div>
+            <iframe src="CPIT-455-Portfolio/assests/AMER_BUGSHAN_CV.pdf" title="Amer Bugshan CV"></iframe>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') document.getElementById('cv-modal').classList.remove('open');
+        });
+    </script>
 
 </body>
 </html>
